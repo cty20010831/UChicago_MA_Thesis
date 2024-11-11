@@ -1,0 +1,56 @@
+\documentclass[../Proposal.tex]{subfiles}
+\renewcommand{\baselinestretch}{1.5} 
+\usepackage{hyperref}
+\usepackage[style = apa]{biblatex}
+   \addbibresource{references.bib}
+\usepackage{csquotes} % Package for direct quotation
+\usepackage{placeins} 
+\usepackage{geometry} 
+    \geometry{margin=1in} 
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{indentfirst} % Make sure the first paragraph after a section heading is indented
+
+\begin{document}
+
+\subsection*{IRB Approval}
+This proposed study is expected to receive IRB approval as it adheres to the four ethical principles (\cite{salganik_bit_2019}). First, it respects the honor of participants by providing them with informed consent before the experiment. Second, it maximizes potential benefits while minimizing potential harm to participants, as it does not induce negative mood states. Third, it treats every participant equally so that the benefits and risks are allocated fairly. Fourth, it complies with legal and public interest standards.
+
+\subsection*{Timeline}
+The proposed timeline for this study is described in Table \ref{tab: Proposed Timeline}.
+\begin{table}
+\centering
+\begin{tabular}{|l|p{8cm}|}
+\hline
+\textbf{Quarter} & \textbf{Activities} \\
+\hline
+Summer & Implement pilot study for pretesting. \\
+\hline
+Next autumn & 1) Refine experiment website and research design based on feedback from pilot study; \newline 2) Publish research design online and begin participant recruitment through MTurk. \\
+\hline
+Next winter & 1) Conduct data analysis; \newline 2) Complete the draft of the final thesis. \\
+\hline
+Next spring & Finalize and submit the thesis paper. \\
+\hline
+\end{tabular}
+\caption{Proposed Timeline}
+\label{tab: Proposed Timeline}
+\end{table}
+
+\subsection*{Cost}
+Based on the pricing information provided in \href{https://requester.mturk.com/pricing}{Amazon Mechanical Turk website}, the total cost for each participant will be \$1.00 (base pay) + \$0.20 (MTurk fees) = \$1.20. For 300 participants, the total cost will be $\$1.20 \times 300 = \$360$.
+
+\subsection*{Deep Learning Models and Computing Power}
+As an integral part of this proposed study, deep learning models require considerable time and resources for both training and implementation. Fortunately, the pre-trained models and the running code for the two deep learning models that I plan to use (i.e., AuDrA and CoSE models) are publicly available online. Moreover, this proposed study will utilize university high-performance computing clusters (specifically, Midway 3) for potential deep learning model fine-tuning.
+
+\subsection*{Potential Supervisors}
+The following is my list of potential supervisors\footnote{I have secured Dr.~Bakkour as my advisor. I am also asking Dr.~Maire and Dr.~Beaty to be potential advisors.}:
+\begin{enumerate}
+    \item \textbf{Akram Bakkour}\footnote{\href{https://psychology.uchicago.edu/directory/Akram-Bakkour}{School Website for Akram Bakkour}}. I have been working at Dr.~Bakkour's lab upon joining the MACSS program, and he has been quite familiar with my research project and also provided me with constructive feedback while I was improving this proposed project. I will benefit from Dr.~Bakkour's expertise in cognitive psychologist in terms of the overarching research design and also the proposal/paper drafting later. 
+    \item \textbf{Michael Maire}\footnote{\href{https://cs.uchicago.edu/people/michael-maire/}{School Website for Michael Maire}}. Since my proposed project involves utilizing the generative stroke embedding model to infer participants' creative ideation process for the drawing task, I would definitely benefit from an expert in the field of computer vision. Upon viewing the faculty profiles on the Department of Computer Science website, I think Dr.~Maire's rich experience in deep learning models for perceptual organization and object recognition would provide me with new insights into interpreting and utilizing the model parameters. 
+    \item \textbf{Roger Beaty}\footnote{\href{https://psych.la.psu.edu/people/rub736/}{School Website for Roger Beaty}}. This would be an external professor from PennState, who I contacted while I was searching for a summer research assistant job. During my chat with Dr.~Beaty, he expressed some interest in my proposed research project and asked me if I am interested in potential collaboration (though we have not reached the final decision for now). The main reason I would like to invite Dr.~Beaty as my supervisor is that he has done a great amount of research in the field of creativity and, more importantly, explored many computational methods to better understand human creativity over the past few years. With his supervision, I am confident that I can formulate a better research design and methodology. 
+\end{enumerate}
+
+
+
+\end{document}

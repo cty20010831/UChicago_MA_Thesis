@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "Cite this repository as below."
+authors:
+- family-names: "Cong"
+  given-names: "Sam"
+  orcid: "https://orcid.org/0000-0000-0000-0000"
+title: "The Art of Positivity in Drawing: Unveiling the Impact of Positive Mood States on Visual Creativity via Deep Learning"
+date-released: 2024-05-06
+url: "https://github.com/UC-MACS-30200/course-project-cty20010831"
