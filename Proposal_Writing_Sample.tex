@@ -1,0 +1,94 @@
+\documentclass[12pt]{article}
+\renewcommand{\baselinestretch}{1.5} 
+\usepackage{hyperref}
+\usepackage[style=apa, backend=biber]{biblatex}
+\addbibresource{references.bib}
+\usepackage{geometry} 
+\geometry{margin=1in} 
+\usepackage{indentfirst} % Make sure the first paragraph after a section heading is indented
+\usepackage{subfiles} % Load subfiles
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{csquotes} % Package for direct quotation
+\usepackage{placeins} 
+\usepackage{subcaption}
+\usepackage{listings} % List Python code for mocked-up analysis
+\usepackage{xcolor}  % Optional, for customizing colors
+\usepackage{longtable} 
+\usepackage{mathptmx} % Use Times New Roman font
+\usepackage[toc,page]{appendix} % Display appendices
+
+% Configuration for the listings package
+\lstset{
+    frame=single, % Add a frame around the code
+    basicstyle=\ttfamily\footnotesize, % Set the basic font style and size
+    keywordstyle=\color{blue}, % Set the color for keywords
+    commentstyle=\color{green}, % Set the color for comments
+    stringstyle=\color{red}, % Set the color for strings
+    numbers=left, % Show line numbers on the left
+    numberstyle=\tiny\color{gray}, % Style for line numbers
+    stepnumber=1, % Show every line number
+    numbersep=5pt, % Distance from the code to the line numbers
+    backgroundcolor=\color{white}, % Background color for the code
+    showspaces=false, % Show spaces as visible characters
+    showstringspaces=false, % Show spaces in strings as visible characters
+    breaklines=true, % Automatically break long lines
+    captionpos=b, % Set the caption position to bottom
+    language=Python % Set the default language
+}
+
+% Configure centering of main sections
+\newcommand{\centeredsection}[1]{%
+  \section*{\centering #1}%
+  \addcontentsline{toc}{section}{#1}}
+
+\title{The Art of Positivity in Drawing: Unveiling the Impact of Positive Mood States on Visual Creativity via Deep Learning}
+\author{Sam Cong}
+\date{May 23, 2024}
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    \vspace*{2in}
+    {\LARGE \textbf{The Art of Positivity in Drawing: Unveiling the Impact of Positive Mood States on Visual Creativity via Deep Learning}\footnote{This is the proposal for my MA thesis at the University of Chicago. This research project could not be possible without the support of my advisor \href{https://psychology.uchicago.edu/directory/Akram-Bakkour}{\textcolor{blue}{Akram Bakkour}}and my preceptor \href{https://macss.uchicago.edu/directory/Sabrina-Nardin}{\textcolor{blue}{Sabrina Nardin}}, whose valuable feedback has pushed me forward in refining my research questions, enhancing methodological rigor, and navigating complex data analysis techniques. } \par}
+    \vspace{1.5in}
+    {\Large Sam Cong \par}
+    \vspace{0.5in}
+    {\large Nov 14, 2024 \par}
+    \vfill
+\end{titlepage}
+\newpage
+
+\newpage
+\centeredsection{Abstract}
+\subfile{Proposal_sections/Abstract}
+
+\centeredsection{Introduction}
+\subfile{Proposal_sections/Introduction}
+
+\centeredsection{Literature Review}
+\subfile{Proposal_sections/LitReview}
+
+\centeredsection{Data and Methods}
+\subfile{Proposal_sections/Data&Methods}
+
+% No need for timeline and feasibility assessment in writing sample
+% \centeredsection{Preliminary Work}
+% \subfile{Proposal_sections/Preliminary_Work}
+
+% No need for timeline and feasibility assessment in writing sample
+% \centeredsection{Proposed Timeline and Feasibility Assessment}
+% \subfile{Proposal_sections/Feasibility}
+
+% Print bibliography
+\newpage
+\centeredsection{References}
+\printbibliography[heading=none]
+
+% Appendices section
+\newpage
+\centeredsection{Appendices}
+\subfile{Proposal_sections/Appendices_Writing_Sample}
+
+\end{document}
