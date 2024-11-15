@@ -5,17 +5,19 @@ This respostory contains proposal, presentation, and final paper for my MA thesi
 ## Github Repo Navigation
 
     .
-    ├── drawio/               # Drawio flowcharts and diagrams
-    ├── Proposal_sections/    # Sections (components) of final proposal
-    ├── sample_drawing_AuDrA  # Sample drawings to test the AuDrA model
-    ├── screenshots/          # Screenshots for better concept/framework explanation for presentation
-    ├── CITATIONS.cff         # Let others know how to cite this repository
-    ├── Presentation.pptx     # Powerpoint for final presentation
-    ├── Presentation.tex      # Latex code for beamer presentation
-    ├── Proposal.tex          # Latex code for final proposal
-    ├── Proposal.pdf          # Pdf file for final proposal
-    ├── README.md             # README file
-    └── references.bib        # Bibliography database file
+    ├── drawio/                         # Drawio flowcharts and diagrams
+    ├── Proposal_sections/              # Sections (components) of final proposal
+    ├── sample_drawing_AuDrA            # Sample drawings to test the AuDrA model
+    ├── screenshots/                    # Screenshots for better concept/framework explanation for presentation
+    ├── CITATIONS.cff                   # Let others know how to cite this repository
+    ├── Presentation.pptx               # Powerpoint for final presentation
+    ├── Presentation.tex                # Latex code for beamer presentation
+    ├── Proposal_MA_Thesis.tex          # Latex code for proposal submitted on Canvas
+    ├── Proposal_MA_Thesis.pdf          # Pdf file for proposal submitted on Canvas
+    ├── Proposal_Writing_Sample.tex     # Latex code for proposal submitted as writing sample for PhD Application
+    ├── Proposal_Writing_Sample.tex     # Pdf file for proposal submitted as writing sample for PhD Application
+    ├── README.md                       # README file
+    └── references.bib                  # Bibliography database file
 
 ## Study Description
 ### Introduction
