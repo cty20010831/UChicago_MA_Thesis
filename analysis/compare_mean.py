@@ -47,12 +47,20 @@ for file in glob.glob(os.path.join(folder_path, "*.csv")):
         # Store relevant information for further analysis
         dfs.append(pd.DataFrame(parsed_data))
 
+
 # Combine all DataFrames into one
 combined_df = pd.concat(dfs, ignore_index=True)
 
+# **NEW STEP: Calculate group size**
+group_sizes = combined_df['group'].value_counts().reset_index()
+group_sizes.columns = ['group', 'group_size']
+
+# **Merge group size information back into the main DataFrame**
+combined_df = combined_df.merge(group_sizes, on='group', how='left')
+
 # Perform mean comparison by stimulus (mood induction group)
 # Note: valence is from -4 to 4 whereas arousal is from 1 to 9 
-print(combined_df.groupby('group')[['valence', 'arousal']].mean())
+print(combined_df.groupby(['group', 'group_size'])[['valence', 'arousal']].mean())
 
 # Example usage
 # python3 compare_mean.py --folder data/batch_2
