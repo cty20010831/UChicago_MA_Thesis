@@ -7,6 +7,7 @@ This respostory contains proposal, presentation, and final paper for my MA thesi
     .
     ├── analysis/                       # Data analysis of pilot or real (batches of) data
     ├── drawio/                         # Drawio flowcharts and diagrams
+    ├── Paper_sections/                 # Sections (components) of final paper
     ├── Proposal_sections/              # Sections (components) of final proposal
     ├── sample_drawing_AuDrA            # Sample drawings to test the AuDrA model
     ├── screenshots/                    # Screenshots for better concept/framework explanation for presentation
