@@ -48,6 +48,17 @@ Following the  MTCI framework, this proposed study will adopt the **incomplete s
 
 Together, this proposed study not only aims to elucidate mood-creativity linkage, but also underscores the transformative potential of integrating artificial intelligence into the study of complex human cognitive processes.
 
+## Experimental design
+Talk about the details of experimental design (what sections are included; could attach the schematic graph). Also mention that the webpage itself is written in javascript (better with sample gif of completing the experiment).
+
+## Data Analysis 
+### Data
+Talk about how data is collected (using CloudResearch + Cognition.run). Also talk about HIT (secret code approval).
+
+The `data` folder under the `analysis` directory stores both pilot and real data in *csv* format. For pilot data, the name of each csv file is the **run id** whereas for real data, the name of each csv file **MTurk worker id**. 
+
+Then, introduce how preprocessing is done
+
 ## Acknoledgement
 This research project could not be possible without the support of my advisor [Akram Bakkour](https://psychology.uchicago.edu/directory/Akram-Bakkour) and my preceptor [Sabrina Nardin](https://macss.uchicago.edu/directory/Sabrina-Nardin), whose valuable feedback has pushed me forward in refining my research questions, enhancing methodological rigor, and navigating complex data analysis techniques. Their guidance and insights have been instrumental in shaping the direction of this project, from initial conceptualization to execution, and have inspired me to continuously strive for clarity, precision, and depth in my work.
 
