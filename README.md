@@ -52,7 +52,8 @@ Talk about how data is collected (using CloudResearch + Cognition.run). Also tal
 
 The `data` folder under the `analysis` directory stores both pilot and real data in *csv* format. For pilot data, the name of each csv file is the **run id** whereas for real data, the name of each csv file **MTurk worker id**. 
 
-Then, introduce how preprocessing is done
+## TO-DO
+Like "compare_mean.py" file, extend other helper functions to handle both single batch folder and parent folder of all bathes. 
 
 ## Acknoledgement
 This research project could not be possible without the support of my advisor [Akram Bakkour](https://psychology.uchicago.edu/directory/Akram-Bakkour) and my preceptor [Sabrina Nardin](https://macss.uchicago.edu/directory/Sabrina-Nardin), whose valuable feedback has pushed me forward in refining my research questions, enhancing methodological rigor, and navigating complex data analysis techniques. Their guidance and insights have been instrumental in shaping the direction of this project, from initial conceptualization to execution, and have inspired me to continuously strive for clarity, precision, and depth in my work.
