@@ -1,3 +1,9 @@
+"""
+This script is used to compare the average valence and arousal ratings for 
+three mood induction groups for either one batch of participants or across 
+multiple batch folders (i.e., all participants except pilot data).
+"""
+
 import pandas as pd
 import os
 import glob
@@ -10,13 +16,13 @@ parser = argparse.ArgumentParser(
     epilog="""
         Example usage:
         # Process a single batch folder
-        python3 compare_mean.py --folder data/batch_1
+        python3 scripts/compare_mean.py --folder data/batch_1
 
         # Process all batch folders inside a parent directory
-        python3 compare_mean.py --folder data/ --parent
+        python3 scripts/compare_mean.py --folder data/ --parent
 
         # See example usage of this function
-        python3 compare_mean.py --help
+        python3 scripts/compare_mean.py --help
         """,
         formatter_class=argparse.RawTextHelpFormatter
     )
@@ -111,6 +117,3 @@ aggregated_results = process_folder(args.folder, is_parent=args.parent)
 if aggregated_results is not None:
     print("Aggregated Mean Valence and Arousal:")
     print(aggregated_results)
-
-
-# 
