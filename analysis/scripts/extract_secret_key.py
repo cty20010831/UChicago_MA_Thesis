@@ -1,10 +1,28 @@
+"""
+This script is used to extract secret keys from CSV files (data) in a specified 
+folder and save the worker_id and secret key into a new CSV file. 
+
+It is primarily for checking participants' completion code to approve their HIT.
+"""
+
 import pandas as pd
 import os
 import glob
 import json
 import argparse
 
-parser = argparse.ArgumentParser(description="Extract and preprocess drawing labels and narratives.")
+parser = argparse.ArgumentParser(
+    description="Extract and preprocess drawing labels and narratives.",
+    epilog="""
+        Example usage:
+        # Process a single batch folder
+        python3 scripts/extract_secret_key.py --folder data/batch_1
+
+        # See example usage of this function
+        python3 scripts/extract_secret_key.py --help
+        """,
+        formatter_class=argparse.RawTextHelpFormatter
+    )
 parser.add_argument("--folder", type=str, required=True, help="Path to the folder containing CSV files.")
 args = parser.parse_args()
 
@@ -35,6 +53,3 @@ for file in glob.glob(os.path.join(folder_path, "*.csv")):
 combined_df = pd.DataFrame(data_list)
 combined_df.set_index("worker_id", inplace=True)  # Set worker_id as the index
 combined_df.to_csv(os.path.join(folder_path, "secret_key.csv"))
-
-# Example usage
-# python3 extract_secret_key.py --folder data/batch_2
