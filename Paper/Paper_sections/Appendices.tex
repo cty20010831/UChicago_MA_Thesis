@@ -27,7 +27,7 @@
 % Formula for Entropy of the Gaussian Mixture Model
 \section{Formula for Calculating Entropy of the Gaussian Mixture Model}
 \label{appendix: entropy}
-This study adopts \textcite{huber_entropy_2008}'s approach to approximate the entropy of a GMM by incorporating the Kullback-Leibler (KL) divergence between each pair of components within the mixture:
+This study adopts the approach proposed by \textcite{huber_entropy_2008} to approximate the entropy of a GMM by incorporating the Kullback-Leibler (KL) divergence between each pair of components within the mixture, as suggested by \textcite{hershey_approximating_2007}:
 \begin{equation*}
     H(GMM) \approx -\sum_{i=1}^{N} \pi_i \log \left(\sum_{j=1}^{N} \pi_j \exp\left(-\frac{1}{2} D_{KL}(N_i || N_j)\right)\right),
 \end{equation*}
