@@ -1,6 +1,6 @@
 """
 This script is used to extract secret keys from CSV files (data) in a specified 
-folder and save the worker_id and secret key into a new CSV file. 
+folder and print the worker_id and secret key to terminal.
 
 It is primarily for checking participants' completion code to approve their HIT.
 """
@@ -12,11 +12,11 @@ import json
 import argparse
 
 parser = argparse.ArgumentParser(
-    description="Extract and preprocess drawing labels and narratives.",
+    description="Extract and print secret keys for worker IDs.",
     epilog="""
         Example usage:
         # Process a single batch folder
-        python3 scripts/extract_secret_key.py --folder data/batch_1
+        python3 scripts/extract_secret_key.py --folder data/raw/batch_1
 
         # See example usage of this function
         python3 scripts/extract_secret_key.py --help
@@ -29,8 +29,10 @@ args = parser.parse_args()
 # Define the folder for data
 folder_path = args.folder
 
-# Initialize an empty list to store DataFrames
-data_list = []
+print("\nWorker IDs and their Secret Keys:")
+print("-" * 50)
+print(f"{'Worker ID':<20} {'Secret Key':<30}")
+print("-" * 50)
 
 # Walk through each CSV file in the folder
 for file in glob.glob(os.path.join(folder_path, "*.csv")):
@@ -42,14 +44,12 @@ for file in glob.glob(os.path.join(folder_path, "*.csv")):
     df = pd.read_csv(file)
 
     # Extract amazon worker_id
-    worker_id = file.split("/")[2].split(".")[0]
+    worker_id = file.split("/")[3].split(".")[0]
 
     # Extract secret key
     secret_key = df.loc[df['trial_index'] == 26, "stimulus"].str.extract(r'<b[^>]*>(.*?)</b>').values[0][0]
 
-    data_list.append({"worker_id": worker_id, "secret_key": secret_key})
+    # Print in a formatted way
+    print(f"{worker_id:<20} {secret_key:<30}")
 
-# Convert the list into a DataFrame
-combined_df = pd.DataFrame(data_list)
-combined_df.set_index("worker_id", inplace=True)  # Set worker_id as the index
-combined_df.to_csv(os.path.join(folder_path, "secret_key.csv"))
+print("-" * 50)

@@ -16,10 +16,10 @@ parser = argparse.ArgumentParser(
     epilog="""
         Example usage:
         # Process a single batch folder
-        python3 scripts/compare_mean.py --folder data/batch_1
+        python3 scripts/compare_mean.py --folder data/raw/batch_1
 
         # Process all batch folders inside a parent directory
-        python3 scripts/compare_mean.py --folder data/ --parent
+        python3 scripts/compare_mean.py --folder data/raw/ --parent
 
         # See example usage of this function
         python3 scripts/compare_mean.py --help
