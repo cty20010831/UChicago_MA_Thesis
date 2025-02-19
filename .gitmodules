@@ -1,0 +1,9 @@
+[submodule "analysis/scripts/UChicago_MA_Thesis_Divergent-Semantic-Integration"]
+	path = analysis/scripts/UChicago_MA_Thesis_Divergent-Semantic-Integration
+	url = https://github.com/cty20010831/UChicago_MA_Thesis_Divergent-Semantic-Integration.git
+[submodule "analysis/scripts/UChicago_MA_Thesis_AuDrA"]
+	path = analysis/scripts/UChicago_MA_Thesis_AuDrA
+	url = https://github.com/cty20010831/UChicago_MA_Thesis_AuDrA.git
+[submodule "analysis/scripts/cose"]
+	path = analysis/scripts/cose
+	url = https://github.com/cty20010831/cose.git
