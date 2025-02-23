@@ -25,6 +25,7 @@ parser.add_argument("--folder", type=str, required=True, help="Path to the folde
 parser.add_argument("--parent", action="store_true", help="If set, process all subfolders inside the given folder.")
 args = parser.parse_args()
 
+# Define helper functions to draw and save images (strokes -> image)
 def draw_image(strokes):
     '''
     Draw and save the image based on given x, y coordinates and actions.
@@ -55,11 +56,36 @@ def draw_image(strokes):
     # Return the image
     return image
 
+def convert_strokes_to_ndjson(strokes):
+    '''
+    Convert the strokes to a ndjson file.
+
+    Arguments:
+        1) strokes: a list of list of stroke
+    '''
+    output_list = []
+    
+    for stroke in strokes:
+        x_vals = []
+        y_vals = []
+        t_vals = []
+        
+        for point in stroke:
+            x_vals.append(point["x"])
+            y_vals.append(point["y"])
+            t_vals.append(point["t"])
+        
+        output_list.append([x_vals, y_vals, t_vals])
+    
+    return output_list
+
 def main(): 
-    # Define paths for raw and processed data
+    # Define paths for raw data and for saving png and json data
     raw_data_path = args.folder
-    drawing_directory = os.path.join("data", "drawings/png")
-    os.makedirs(drawing_directory, exist_ok=True)
+    png_directory = os.path.join("data", "drawings/png")
+    ndjson_directory = os.path.join("data", "drawings/ndjson")
+    os.makedirs(png_directory, exist_ok=True)
+    os.makedirs(ndjson_directory, exist_ok=True)
 
     # Decide whether to process a single batch folder or all batch folders inside a parent directory
     if args.parent: 
@@ -74,14 +100,17 @@ def main():
         
         if batch_name == "pilot":
             continue
-        save_path = os.path.join(drawing_directory, batch_name)
+        
+        save_png_path = os.path.join(png_directory, batch_name)
+        save_ndjson_path = os.path.join(ndjson_directory, batch_name)
 
         # Check whether the directory exists (i.e., whether the batch has been processed)
-        if os.path.exists(save_path):
+        if os.path.exists(save_png_path) and os.path.exists(save_ndjson_path):
             print(f"Skipping {batch_name} because it has already been processed")
             continue
         else: 
-            os.makedirs(save_path)
+            os.makedirs(save_png_path, exist_ok=True)
+            os.makedirs(save_ndjson_path, exist_ok=True)
 
         # Process each CSV file in the batch folder
         for file in glob.glob(os.path.join(batch_folder, "*.csv")):
@@ -99,8 +128,16 @@ def main():
 
                 # Draw and save the drawing
                 strokes = json.loads(v)
+
+                # Save the image as png
                 image = draw_image(strokes)
-                image.save(os.path.join(save_path, f"{worker_id}_Group_{group}.png"))
+                image.save(os.path.join(save_png_path, f"{worker_id}_Group_{group}.png"))
+
+                # Save the strokes as ndjson
+                strokes_ndjson = convert_strokes_to_ndjson(strokes)
+                with open(os.path.join(save_ndjson_path, f"{worker_id}_Group_{group}.ndjson"), "w") as f:
+                    ndjson_record = {"worker_id": worker_id, "group": group, "drawing": strokes_ndjson}
+                    f.write(json.dumps(ndjson_record) + "\n")
         
         print(f"Finished processing {batch_name}")
 
