@@ -55,7 +55,13 @@ def main():
         if batch_name == "pilot":
             continue
         save_path = os.path.join(processed_dir, batch_name)
-        os.makedirs(save_path, exist_ok=True)
+
+        # Check whether the directory exists (i.e., whether the batch has been processed)
+        if os.path.exists(save_path):
+            print(f"Skipping {batch_name} because it has already been processed")
+            continue
+        else: 
+            os.makedirs(save_path)
 
         # Initialize an empty list to store DataFrames
         data_list = []
