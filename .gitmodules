@@ -1,0 +1,12 @@
+[submodule "incomplete_drawing_task"]
+	path = incomplete_drawing_task
+	url = https://github.com/cty20010831/incomplete_drawing_task.git
+[submodule "analysis/scripts/CoSE"]
+	path = analysis/scripts/CoSE
+	url = https://github.com/cty20010831/cose.git
+[submodule "analysis/scripts/AuDrA"]
+	path = analysis/scripts/AuDrA
+	url = https://github.com/cty20010831/UChicago_MA_Thesis_AuDrA.git
+[submodule "analysis/scripts/DSI"]
+	path = analysis/scripts/DSI
+	url = https://github.com/cty20010831/UChicago_MA_Thesis_Divergent-Semantic-Integration.git
