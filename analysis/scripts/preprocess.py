@@ -45,7 +45,7 @@ def main():
 
     # Decide whether to process a single batch folder or all batch folders inside a parent directory
     if args.parent: 
-        batch_folders = [os.path.join(raw_data_path, sub) for sub in os.listdir(raw_data_path) if os.path.isdir(os.path.join(raw_data_path, sub))]
+        batch_folders = [os.path.join(raw_data_path, batch) for batch in os.listdir(raw_data_path) if os.path.isdir(os.path.join(raw_data_path, batch))]
     else:
         batch_folders = [raw_data_path]
 
