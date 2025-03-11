@@ -1,0 +1,5 @@
+# This requirements file is used to install the required Python packages for the analysis scripts underlying "/scripts" folder.
+# For each directory of AuDrA, CoSE, and DSI, you need to (set up and) activate the environment respectively in order to derive metrics of flexbility and originality.
+
+pandas
+statsmodels
