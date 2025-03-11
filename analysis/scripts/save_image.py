@@ -94,6 +94,7 @@ def main():
         batch_folders = [raw_data_path]
 
     # Walk through each CSV file in the folder
+    drawings_processed = 0
     for batch_folder in batch_folders:
         # Get batch name from folder path and define path for saving processed data
         batch_name = os.path.basename(batch_folder)
@@ -136,10 +137,21 @@ def main():
                 # Save the strokes as ndjson
                 strokes_ndjson = convert_strokes_to_ndjson(strokes)
                 with open(os.path.join(save_ndjson_path, f"{worker_id}_Group_{group}.ndjson"), "w") as f:
-                    ndjson_record = {"worker_id": worker_id, "group": group, "drawing": strokes_ndjson}
+                    ndjson_record = {
+                        "batch_name": batch_name, 
+                        "worker_id": worker_id, 
+                        "group": group, 
+                        "drawing": strokes_ndjson
+                    }
                     f.write(json.dumps(ndjson_record) + "\n")
+                
+                # Increment the counter after a successful save
+                drawings_processed += 1
         
         print(f"Finished processing {batch_name}")
+    
+    # Print total drawings processed
+    print(f"Total drawings processed: {drawings_processed}")
 
 if __name__ == "__main__":
     main()
