@@ -1,5 +1,6 @@
 # Collected data
 analysis/data
+analysis/results/merged_data.csv
 
 # Miscellaneous documents
 control_variables_&_demographics 
