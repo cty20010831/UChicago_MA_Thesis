@@ -136,8 +136,18 @@ def main():
             education_level_dic = df.loc[df['trial_index'] == 24, "response"]
             education_level = extract_response(education_level_dic)['Q0']
 
-            # Iterate through the labels and their corresponding narratives for three Groups of incomplete drawings
+            # Iterate through background images, labels and their corresponding narratives for three Groups of incomplete drawings
             for drawing_group, label_index, narrative_index in zip(["Incomplete_Group_A", "Incomplete_Group_B", "Incomplete_Group_C"], [9, 12, 15], [10, 13, 16]):
+                # Extract background image
+                background_image_row = df.loc[df['trial_index'] == label_index - 1, "backgroundImage"]
+                if not background_image_row.empty:
+                    try:
+                        background_image = json.loads(background_image_row.iloc[0])['backgroundImage']
+                    except (json.JSONDecodeError, KeyError, IndexError):
+                        background_image = None
+                else:
+                    background_image = None
+                
                 # Extract label
                 response_row = df.loc[df['trial_index'] == label_index, "response"]
                 if not response_row.empty:
@@ -167,7 +177,8 @@ def main():
                     "cognitive_flexibility": cognitive_flexibility_score,
                     "self_rated_artistic_skill": self_rated_artistic_skill,
                     "age": age, "gender": gender, "education_level": education_level,
-                    "drawing_group": drawing_group, "label": label, "narrative": narrative,
+                    "drawing_group": drawing_group, "background_image": background_image, 
+                    "label": label, "narrative": narrative
                 })
 
         # Convert the list into a DataFrame

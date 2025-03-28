@@ -4,6 +4,8 @@ import glob
 import json
 import pandas as pd
 import argparse
+import cv2
+import numpy as np
 
 # Define arguments for argparse
 parser = argparse.ArgumentParser(
@@ -26,16 +28,16 @@ parser.add_argument("--parent", action="store_true", help="If set, process all s
 args = parser.parse_args()
 
 # Define helper functions to draw and save images (strokes -> image)
-def draw_image(strokes):
+def draw_image(strokes, canvas_size=(400, 400), stroke_width=2):
     '''
     Draw and save the image based on given x, y coordinates and actions.
 
     Arguments:
         1) strokes: a list of list of stroke
+        2) canvas_size: a tuple of canvas size (default: (400, 400))
     '''
 
     # Initialize a blank grayscale canvas
-    canvas_size = (400, 400)
     image = Image.new("L", canvas_size, "white")  # "L" mode for grayscale
     draw = ImageDraw.Draw(image)
 
@@ -50,7 +52,7 @@ def draw_image(strokes):
                 current_path.append((x, y))  # Add points to the current path
             elif action == "end":
                 current_path.append((x, y))  # Complete the stroke
-                draw.line(current_path, fill=0, width=2)  # 0 is black in grayscale
+                draw.line(current_path, fill=0, width=stroke_width)  # 0 is black in grayscale
                 current_path = []  # Reset for the next stroke
 
     # Return the image
@@ -79,9 +81,36 @@ def convert_strokes_to_ndjson(strokes):
     
     return output_list
 
+def background_to_strokes(image_path):
+    img = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
+    assert img.shape == (400, 400), "Image is not 400x400"
+
+    _, binary = cv2.threshold(img, 200, 255, cv2.THRESH_BINARY_INV)
+    contours, _ = cv2.findContours(binary, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+
+    strokes = []
+    for contour in contours:
+        if len(contour) < 2:
+            continue
+
+        stroke = []
+        for i, point in enumerate(contour):
+            x, y = point[0]
+            action = "start" if i == 0 else "end" if i == len(contour) - 1 else "move"
+            stroke.append({
+                "x": int(x),
+                "y": int(y),
+                "t": 0,
+                "action": action
+            })
+        strokes.append(stroke)
+
+    return strokes
+
 def main(): 
     # Define paths for raw data and for saving png and json data
     raw_data_path = args.folder
+    background_image_directory = "../incomplete_drawing_task/public/images"
     png_directory = os.path.join("data", "drawings/png")
     ndjson_directory = os.path.join("data", "drawings/ndjson")
     os.makedirs(png_directory, exist_ok=True)
@@ -106,12 +135,12 @@ def main():
         save_ndjson_path = os.path.join(ndjson_directory, batch_name)
 
         # Check whether the directory exists (i.e., whether the batch has been processed)
-        if os.path.exists(save_png_path) and os.path.exists(save_ndjson_path):
-            print(f"Skipping {batch_name} because it has already been processed")
-            continue
-        else: 
-            os.makedirs(save_png_path, exist_ok=True)
-            os.makedirs(save_ndjson_path, exist_ok=True)
+        # if os.path.exists(save_png_path) and os.path.exists(save_ndjson_path):
+        #     print(f"Skipping {batch_name} because it has already been processed")
+        #     continue
+        # else: 
+        #     os.makedirs(save_png_path, exist_ok=True)
+        #     os.makedirs(save_ndjson_path, exist_ok=True)
 
         # Process each CSV file in the batch folder
         for file in glob.glob(os.path.join(batch_folder, "*.csv")):
@@ -123,24 +152,31 @@ def main():
 
             # Extract stroke
             strokes_df = df.loc[df['trial_type'] == "sketchpad"]["strokes"]
+            background_image_df = df.loc[df['trial_type'] == "sketchpad"]["backgroundImage"]
             groups = ["A", "B", "C"] # groups of incomplete shapes
             for i, v in enumerate(strokes_df):
                 group = groups[i]
-
-                # Draw and save the drawing
                 strokes = json.loads(v)
 
+                # Prepend the background image to the strokes
+                background_image_filename = background_image_df.iloc[i]
+                background_image_path = os.path.join(background_image_directory, background_image_filename)
+                background_strokes = background_to_strokes(background_image_path)
+
+                # Combine background and participant strokes
+                combined_strokes = background_strokes + strokes
+
                 # Save the image as png
-                image = draw_image(strokes)
+                image = draw_image(combined_strokes)
                 image.save(os.path.join(save_png_path, f"{worker_id}_Group_{group}.png"))
 
                 # Save the strokes as ndjson
-                strokes_ndjson = convert_strokes_to_ndjson(strokes)
+                strokes_ndjson = convert_strokes_to_ndjson(combined_strokes)
                 with open(os.path.join(save_ndjson_path, f"{worker_id}_Group_{group}.ndjson"), "w") as f:
                     ndjson_record = {
                         "batch_name": batch_name, 
                         "worker_id": worker_id, 
-                        "group": group, 
+                        "group": group,
                         "drawing": strokes_ndjson
                     }
                     f.write(json.dumps(ndjson_record) + "\n")
