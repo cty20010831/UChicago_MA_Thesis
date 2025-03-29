@@ -135,12 +135,12 @@ def main():
         save_ndjson_path = os.path.join(ndjson_directory, batch_name)
 
         # Check whether the directory exists (i.e., whether the batch has been processed)
-        # if os.path.exists(save_png_path) and os.path.exists(save_ndjson_path):
-        #     print(f"Skipping {batch_name} because it has already been processed")
-        #     continue
-        # else: 
-        #     os.makedirs(save_png_path, exist_ok=True)
-        #     os.makedirs(save_ndjson_path, exist_ok=True)
+        if os.path.exists(save_png_path) and os.path.exists(save_ndjson_path):
+            print(f"Skipping {batch_name} because it has already been processed")
+            continue
+        else: 
+            os.makedirs(save_png_path, exist_ok=True)
+            os.makedirs(save_ndjson_path, exist_ok=True)
 
         # Process each CSV file in the batch folder
         for file in glob.glob(os.path.join(batch_folder, "*.csv")):
