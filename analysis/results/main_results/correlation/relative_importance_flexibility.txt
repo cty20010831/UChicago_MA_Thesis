@@ -1,0 +1,28 @@
+===== Relative Importance of Flexibility Measures Predicting Originality (AuDrA) =====
+
+Response variable: AuDrA 
+Total response variance: 0.01398811 
+Analysis based on 270 observations 
+
+5 Regressors: 
+avg_entropy avg_bhatt_dist inflection_prop_entropy inflection_prop_bhatt DSI 
+Proportion of variance explained by model: 66.56%
+Metrics are normalized to sum to 100% (rela=TRUE). 
+
+Relative importance metrics: 
+
+                                lmg
+avg_entropy             0.024680513
+avg_bhatt_dist          0.006462679
+inflection_prop_entropy 0.402664215
+inflection_prop_bhatt   0.397113502
+DSI                     0.169079091
+
+Average coefficients for different model sizes: 
+
+                                 1X         2Xs         3Xs         4Xs         5Xs
+avg_entropy             -0.15145317 -0.14494639 -0.11679808 -0.10406838 -0.10955952
+avg_bhatt_dist          -0.01714005  0.01008723  0.01041383  0.01171079  0.01823671
+inflection_prop_entropy  0.41529171  0.35059802  0.29328030  0.24449185  0.20582409
+inflection_prop_bhatt    0.41210832  0.34888353  0.29071708  0.23429237  0.17806189
+DSI                      0.23275755  0.15859891  0.10568715  0.07729904  0.07103293

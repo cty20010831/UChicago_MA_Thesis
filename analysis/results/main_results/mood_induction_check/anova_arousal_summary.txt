@@ -1,0 +1,23 @@
+===== ANOVA for Arousal by Group =====
+
+            Df Sum Sq Mean Sq F value  Pr(>F)   
+group        2   56.5  28.233   6.861 0.00171 **
+Residuals   87  358.0   4.115                   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Effect size (η²):
+# Effect Size for ANOVA
+
+Parameter | Eta2 |       95% CI
+-------------------------------
+group     | 0.14 | [0.04, 1.00]
+
+- One-sided CIs: upper bound fixed at [1.00].
+Post-hoc Tukey Test:
+ contrast                                                                     estimate    SE df t.ratio p.value
+ Neutral Group - Positive Valence & High Arousal Group                          -1.833 0.524 87  -3.500  0.0021
+ Neutral Group - Positive Valence & Low Arousal Group                           -0.367 0.524 87  -0.700  0.7641
+ Positive Valence & High Arousal Group - Positive Valence & Low Arousal Group    1.467 0.524 87   2.800  0.0171
+
+P value adjustment: tukey method for comparing a family of 3 estimates 
