@@ -7,33 +7,39 @@
 \usepackage{booktabs}        % for \toprule, \midrule, \bottomrule
 
 \begin{document}
+\subsection*{Participant Demographics}
+
+Of the final sample (N = 90), participants ranged in age from 19 to 65 years ($M = 33.5$, $SD = 10.4$). The sample included 43 females (47.8\%), 44 males (48.9\%), and 3 participants identifying as non-binary or other (3.3\%). 
+
+In terms of race and ethnicity, 47.8\% identified as White, 13.3\% as Black or African American, 13.3\% as Asian, 12.2\% as Hispanic or Latino, and 13.3\% as multiracial or other. Educational attainment was relatively high: 42.2\% of participants held a bachelor’s degree, and 24.4\% had completed a graduate degree. In total, 66.6\% of participants held at least a bachelor’s degree. All participants were physically located in the United States.
+
 \subsection*{Manipulation Check: Mood Induction}
 To verify that the mood induction procedure successfully manipulated participants’ mood states along both the arousal and valence dimensions, I conducted one-way ANOVAs with mood group (\textit{High-Arousal Positive Mood}, \textit{Low-Arousal Positive Mood}, and
 \textit{Neutral Control}) as the between-subjects factor.
 
-For arousal ratings, a one-way ANOVA revealed a significant effect of induced mood condition, $F(2, 87) = 6.86$, $p = .0017$, with a moderate effect size ($\eta^2 = .14$). Furthermore, post-hoc Tukey tests showed that participants in the \textit{High-Arousal Positive Mood} group (M = 6.70, SD = 1.02) reported significantly higher arousal than those in the \textit{Neutral Control} group (M = 4.05, SD = 1.12; $p = .0021$) and the \textit{Low-Arousal Positive Mood} group (M = 4.53, SD = 1.09; $p = .0171$). No significant difference was observed between the \textit{Neutral Control} and \textit{Low-Arousal Positive Mood} groups ($p = .7641$; see Figure). 
+For arousal ratings, a one-way ANOVA revealed a significant effect of induced mood condition, $F(2, 87) = 6.86$, $p = .0017$, with a moderate effect size ($\eta^2 = .14$). Furthermore, post-hoc Tukey tests showed that participants in the \textit{High-Arousal Positive Mood} group ($M = 6.70$, $SD = 1.02$) reported significantly higher arousal than those in the \textit{Neutral Control} group ($M = 4.05$, $SD = 1.12$; $p = .0021$) and the \textit{Low-Arousal Positive Mood} group ($M = 4.53$, $SD = 1.09$; $p = .0171$). No significant difference was observed between the \textit{Neutral Control} and \textit{Low-Arousal Positive Mood} groups ($p = .7641$; see Figure~\ref{fig:arousal_group}). 
 
-For valence ratings, a one-way ANOVA also showed a significant group difference, $F(2, 87) = 4.44$, $p = .0146$, with a moderate effect size ($\eta^2 = .09$). Moreover, post-hoc Tukey tests revealed that the \textit{High-Arousal Positive Mood} group (M = 2.91, SD = 0.96) reported significantly higher valence than the \textit{Neutral Control} group (M = 1.24, SD = 1.24; $p = .0167$), whereas the \textit{Low-Arousal Positive Mood} group (M = 2.16, SD = 1.10) did not significantly differ from either group ($ps > .05$; see Figure). 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.75\textwidth]{../analysis/results/main_results/mood_induction_check/arousal_by_group.png}
+  \caption{Boxplot of Arousal Ratings by Mood Group}
+  \label{fig:arousal_group}
+\end{figure}
+
+For valence ratings, a one-way ANOVA also showed a significant group difference, $F(2, 87) = 4.44$, $p = .0146$, with a moderate effect size ($\eta^2 = .09$). Moreover, post-hoc Tukey tests revealed that the \textit{High-Arousal Positive Mood} group ($M = 2.91$, $SD = 0.96$) reported significantly higher valence than the \textit{Neutral Control} group ($M = 1.24$, $SD = 1.24$; $p = .0167$), whereas the \textit{Low-Arousal Positive Mood} group ($M = 2.16$, $SD = 1.10$) did not significantly differ from either group ($ps > .05$; see Figure~\ref{fig:valence_group}). 
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.75\textwidth]{../analysis/results/main_results/mood_induction_check/valence_by_group.png}
+  \caption{Boxplot of Valence Ratings by Mood Group}
+  \label{fig:valence_group}
+\end{figure}
 
 Overall, the experimental mood induction procedure using three validated film clips achieved the anticipated mood manipulation results. For the two positive valence groups, there was a significant difference in arousal ratings, whereas the valence ratings did not significantly differ. This pattern supports the intended orthogonal manipulation of arousal while holding valence constant, allowing for a more focused investigation of arousal's unique effects on subsequent creative processes. Meanwhile, the significant differences in both arousal and valence ratings between the \textit{High-Arousal Positive Mood} and \textit{Neutral Control} groups confirm the successful induction of a distinctly activated positive affective state in the high-arousal condition.
 
-% \begin{figure}[H]
-%   \centering
-%   \includegraphics[width=0.75\textwidth]{../analysis/results/mood_induction_check/arousal_by_group.png}
-%   \caption{Boxplot of arousal ratings by mood condition}
-%   \label{fig:arousal_group}
-% \end{figure}
+\subsection*{Descriptive Statistics of Flexibility and Originality Measures}
 
-% \begin{figure}[H]
-%   \centering
-%   \includegraphics[width=0.75\textwidth]{results/mood_induction_check/valence_by_group.png}
-%   \caption{Boxplot of valence ratings by mood condition}
-%   \label{fig:valence_group}
-% \end{figure}
-
-\subsection*{Descriptive Statistics}
-
-Means and standard deviations for all flexibility measures and the originality measure are presented in Table~\ref{tab:descriptive_stats}. Overall, the flexibility metrics showed subtle variation across mood conditions. 
+The descriptive statistics for all the measures of flexibility and originality across mood conditions are presented in Table~\ref{tab:descriptive_stats}. Overall, the flexibility metrics demonstrated subtle group differences. Average entropy and Bhattacharyya distance were highest in \textit{High-Arousal Positive} group and lowest in \textit{Low-Arousal Positive} group, though these differences were small. Inflection proportions of entropy and Bhattacharyya distance were slightly elevated in \textit{Low-Arousal Positive} group, suggesting greater within-trial shifts in drawing strategy. DSI scores were highest in \textit{High- Arousal Positive} group, indicating more semantically diverse narrative content, with \textit{Neutral Control} and \textit{Low-Arousal Positive} groups showing similar levels. Originality, as measured by the AuDrA model, remained stable under all conditions, with means ranging narrowly from 0.36 to 0.37 and no apparent variation across groups. 
 
 \begin{table}[H]
 \centering
@@ -59,10 +65,27 @@ AuDrA & 0.37 (0.10) & 0.36 (0.10) & 0.37 (0.11) \\
 \end{threeparttable}
 \end{table}
 
-Average entropy was comparable across groups, with the \textit{High Arousal} group showing the highest entropy (M = 1.78, SD = 0.07), followed closely by the \textit{Neutral} group (M = 1.77, SD = 0.09) and the \textit{Low Arousal} group (M = 1.74, SD = 0.10). A similar pattern was observed for average Bhattacharyya distance. 
+\subsection*{Correlational and Predictive Analyses of Flexibility Measures}
 
-In contrast, \textit{DSI} was highest in the \textit{High Arousal} group (M = 0.66, SD = 0.22), slightly higher than the \textit{Neutral} (M = 0.59, SD = 0.28) and \textit{Low Arousal} (M = 0.58, SD = 0.30) groups. Interestingly, inflection proportions (both entropy and Bhattacharyya-based) were slightly elevated in the \textit{Low Arousal} group, suggesting greater within-trial flexibility switching.
+Correlation analyses revealed a notable divergence between two modes of cognitive flexibility. As shown in Figure~\ref{fig:cor_heatmap}, average entropy and average Bhattacharyya distance were strongly positively correlated with each other ($r = .83$), but both showed weak negative correlations with their respective inflection metrics (e.g., $r = -0.21$ for entropy and entropy inflection proportion) and with DSI ($r$s between –.12 and –.18). These trends suggest that participants who sustained a broad space of exploratory stroke options throughout the drawing process tended to make fewer within-trial shifts in drawing strategy and produced less semantically divergent narratives.
 
-Originality scores, as measured by AuDrA, were remarkably consistent across groups (M = 0.36–0.37, SD ≈ 0.10), with no meaningful variation.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{../analysis/results/main_results/correlation/correlation_heatmap_flexibility.png}
+  \caption{Pearson Correlation Matrix Among Flexibility Measures}
+  \label{fig:cor_heatmap}
+\end{figure}
+
+By contrast, the two inflection-based measures were strongly positively correlated with each other ($r = .88$), and both were moderately positively associated with DSI ($r > .50$), indicating a shared flexibility dynamic rooted in frequent strategic switching and broader conceptual integration. As illustrated in Figure~\ref{fig:pairwise_flexibility_originality}, these switching-based flexibility metrics demonstrated a modest positive relationship with originality (AuDrA), while the average metrics (entropy and Bhattacharyya distance) showed little to no association with originality.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{../analysis/results/main_results/correlation/ggpairs_flexibility_and_outcome.png}
+  \caption{Pairwise Relationships Among Flexibility Metrics and Originality (AuDrA)}
+  \label{fig:pairwise_flexibility_originality}
+\end{figure}
+
+Taken together, these results suggest that real-time flexibility may manifest through two distinct behavioral strategies: one characterized by persistent exploratory breadth (high average entropy/Bhattacharyya), and another characterized by dynamic switching between ideas (high inflection proportions and DSI). Importantly, only the latter appears meaningfully connected to originality in this task context.
+
 
 \end{document}
