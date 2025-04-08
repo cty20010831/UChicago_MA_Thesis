@@ -1,0 +1,152 @@
+===== Multilevel mediation models (lme4 + mediation) =====
+
+
+
+---------------------------
+Mediator: avg_entropy 
+---------------------------
+
+
+Causal Mediation Analysis 
+
+Quasi-Bayesian Confidence Intervals
+
+Mediator Groups: id 
+
+Outcome Groups: id 
+
+Output Based on Overall Averages Across Groups 
+
+                Estimate 95% CI Lower 95% CI Upper p-value  
+ACME            2.09e-05    -8.19e-04         0.00   0.947  
+ADE            -1.03e-02    -1.97e-02         0.00   0.032 *
+Total Effect   -1.03e-02    -1.97e-02         0.00   0.030 *
+Prop. Mediated -1.51e-03    -1.71e-01         0.13   0.946  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Sample Size Used: 270 
+
+
+Simulations: 5000 
+
+
+
+---------------------------
+Mediator: avg_bhatt_dist 
+---------------------------
+
+
+Causal Mediation Analysis 
+
+Quasi-Bayesian Confidence Intervals
+
+Mediator Groups: id 
+
+Outcome Groups: id 
+
+Output Based on Overall Averages Across Groups 
+
+                Estimate 95% CI Lower 95% CI Upper p-value  
+ACME            0.000123    -0.000280         0.00   0.594  
+ADE            -0.010520    -0.019977         0.00   0.029 *
+Total Effect   -0.010397    -0.019863         0.00   0.031 *
+Prop. Mediated -0.006786    -0.131095         0.04   0.601  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Sample Size Used: 270 
+
+
+Simulations: 5000 
+
+
+
+---------------------------
+Mediator: inflection_prop_entropy 
+---------------------------
+
+
+Causal Mediation Analysis 
+
+Quasi-Bayesian Confidence Intervals
+
+Mediator Groups: id 
+
+Outcome Groups: id 
+
+Output Based on Overall Averages Across Groups 
+
+               Estimate 95% CI Lower 95% CI Upper p-value  
+ACME           -0.00512     -0.01091         0.00   0.082 .
+ADE            -0.00518     -0.01059         0.00   0.058 .
+Total Effect   -0.01030     -0.01815         0.00   0.015 *
+Prop. Mediated  0.49965     -0.10208         1.04   0.075 .
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Sample Size Used: 270 
+
+
+Simulations: 5000 
+
+
+
+---------------------------
+Mediator: inflection_prop_bhatt 
+---------------------------
+
+
+Causal Mediation Analysis 
+
+Quasi-Bayesian Confidence Intervals
+
+Mediator Groups: id 
+
+Outcome Groups: id 
+
+Output Based on Overall Averages Across Groups 
+
+               Estimate 95% CI Lower 95% CI Upper p-value  
+ACME           -0.00377     -0.00983         0.00   0.219  
+ADE            -0.00654     -0.01157         0.00   0.012 *
+Total Effect   -0.01031     -0.01824         0.00   0.013 *
+Prop. Mediated  0.36555     -0.53380         0.78   0.208  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Sample Size Used: 270 
+
+
+Simulations: 5000 
+
+
+
+---------------------------
+Mediator: DSI 
+---------------------------
+
+
+Causal Mediation Analysis 
+
+Quasi-Bayesian Confidence Intervals
+
+Mediator Groups: id 
+
+Outcome Groups: id 
+
+Output Based on Overall Averages Across Groups 
+
+                Estimate 95% CI Lower 95% CI Upper p-value   
+ACME            0.000886    -0.004234         0.01  0.7368   
+ADE            -0.011155    -0.018233         0.00  0.0028 **
+Total Effect   -0.010270    -0.019170         0.00  0.0276 * 
+Prop. Mediated -0.072066    -1.897860         0.37  0.7636   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Sample Size Used: 270 
+
+
+Simulations: 5000 
+

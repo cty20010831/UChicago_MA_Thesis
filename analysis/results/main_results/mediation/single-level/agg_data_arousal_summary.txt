@@ -1,0 +1,481 @@
+===== Summary of lavaan mediation models (multiple mediators) =====
+
+
+---------------------------
+Mediator: avg_entropy 
+---------------------------
+
+lavaan 0.6-19 ended normally after 1 iteration
+
+  Estimator                                         ML
+  Optimization method                           NLMINB
+  Number of model parameters                        17
+
+  Number of observations                            90
+
+Model Test User Model:
+                                                      
+  Test statistic                                 0.000
+  Degrees of freedom                                 0
+
+Model Test Baseline Model:
+
+  Test statistic                                74.389
+  Degrees of freedom                                13
+  P-value                                        0.000
+
+User Model versus Baseline Model:
+
+  Comparative Fit Index (CFI)                    1.000
+  Tucker-Lewis Index (TLI)                       1.000
+
+Loglikelihood and Information Criteria:
+
+  Loglikelihood user model (H0)                207.655
+  Loglikelihood unrestricted model (H1)        207.655
+                                                      
+  Akaike (AIC)                                -381.310
+  Bayesian (BIC)                              -338.813
+  Sample-size adjusted Bayesian (SABIC)       -392.466
+
+Root Mean Square Error of Approximation:
+
+  RMSEA                                          0.000
+  90 Percent confidence interval - lower         0.000
+  90 Percent confidence interval - upper         0.000
+  P-value H_0: RMSEA <= 0.050                       NA
+  P-value H_0: RMSEA >= 0.080                       NA
+
+Standardized Root Mean Square Residual:
+
+  SRMR                                           0.000
+
+Parameter Estimates:
+
+  Standard errors                            Bootstrap
+  Number of requested bootstrap draws             5000
+  Number of successful bootstrap draws            4971
+
+Regressions:
+                   Estimate  Std.Err  z-value  P(>|z|) ci.lower ci.upper   Std.lv  Std.all
+  avg_entropy ~                                                                           
+    arousal   (a1)    0.001    0.004    0.126    0.900   -0.007    0.009    0.001    0.013
+    pstv_ffct         0.005    0.002    2.989    0.003    0.002    0.008    0.005    0.505
+    ngtv_ffct         0.002    0.001    1.390    0.165   -0.001    0.004    0.002    0.163
+    opnnss_t_         0.003    0.004    0.706    0.480   -0.006    0.012    0.003    0.092
+    cgntv_flx        -0.003    0.002   -1.382    0.167   -0.006    0.001   -0.003   -0.223
+    slf_rtd__        -0.029    0.011   -2.660    0.008   -0.051   -0.009   -0.029   -0.509
+  AuDrA ~                                                                                 
+    arousal   (c1)    0.002    0.005    0.480    0.631   -0.007    0.012    0.002    0.048
+    avg_ntrpy  (b)   -0.252    0.094   -2.666    0.008   -0.441   -0.068   -0.252   -0.216
+    pstv_ffct        -0.005    0.002   -2.387    0.017   -0.009   -0.001   -0.005   -0.431
+    ngtv_ffct         0.000    0.001    0.068    0.946   -0.002    0.002    0.000    0.006
+    opnnss_t_        -0.000    0.003   -0.088    0.930   -0.007    0.006   -0.000   -0.007
+    cgntv_flx         0.004    0.001    2.758    0.006    0.001    0.007    0.004    0.286
+    slf_rtd__        -0.015    0.013   -1.205    0.228   -0.041    0.008   -0.015   -0.232
+
+Intercepts:
+                   Estimate  Std.Err  z-value  P(>|z|) ci.lower ci.upper   Std.lv  Std.all
+   .avg_entropy       1.760    0.095   18.509    0.000    1.550    1.921    1.760   20.252
+   .AuDrA             0.775    0.192    4.043    0.000    0.404    1.161    0.775    7.640
+
+Variances:
+                   Estimate  Std.Err  z-value  P(>|z|) ci.lower ci.upper   Std.lv  Std.all
+   .avg_entropy       0.007    0.001    7.722    0.000    0.004    0.008    0.007    0.876
+   .AuDrA             0.005    0.001    5.751    0.000    0.003    0.007    0.005    0.500
+
+R-Square:
+                   Estimate
+    avg_entropy       0.124
+    AuDrA             0.500
+
+Defined Parameters:
+                   Estimate  Std.Err  z-value  P(>|z|) ci.lower ci.upper   Std.lv  Std.all
+    indirect_arosl   -0.000    0.001   -0.115    0.908   -0.003    0.002   -0.000   -0.003
+    direct_arousal    0.002    0.005    0.480    0.631   -0.007    0.012    0.002    0.048
+    total_arousal     0.002    0.005    0.453    0.651   -0.007    0.011    0.002    0.045
+
+
+
+---------------------------
+Mediator: avg_bhatt_dist 
+---------------------------
+
+lavaan 0.6-19 ended normally after 1 iteration
+
+  Estimator                                         ML
+  Optimization method                           NLMINB
+  Number of model parameters                        17
+
+  Number of observations                            90
+
+Model Test User Model:
+                                                      
+  Test statistic                                 0.000
+  Degrees of freedom                                 0
+
+Model Test Baseline Model:
+
+  Test statistic                                68.954
+  Degrees of freedom                                13
+  P-value                                        0.000
+
+User Model versus Baseline Model:
+
+  Comparative Fit Index (CFI)                    1.000
+  Tucker-Lewis Index (TLI)                       1.000
+
+Loglikelihood and Information Criteria:
+
+  Loglikelihood user model (H0)                102.113
+  Loglikelihood unrestricted model (H1)        102.113
+                                                      
+  Akaike (AIC)                                -170.225
+  Bayesian (BIC)                              -127.728
+  Sample-size adjusted Bayesian (SABIC)       -181.382
+
+Root Mean Square Error of Approximation:
+
+  RMSEA                                          0.000
+  90 Percent confidence interval - lower         0.000
+  90 Percent confidence interval - upper         0.000
+  P-value H_0: RMSEA <= 0.050                       NA
+  P-value H_0: RMSEA >= 0.080                       NA
+
+Standardized Root Mean Square Residual:
+
+  SRMR                                           0.000
+
+Parameter Estimates:
+
+  Standard errors                            Bootstrap
+  Number of requested bootstrap draws             5000
+  Number of successful bootstrap draws            4981
+
+Regressions:
+                   Estimate  Std.Err  z-value  P(>|z|) ci.lower ci.upper   Std.lv  Std.all
+  avg_bhatt_dist ~                                                                        
+    arousal   (a1)   -0.005    0.012   -0.412    0.680   -0.029    0.020   -0.005   -0.040
+    pstv_ffct         0.010    0.004    2.339    0.019    0.001    0.019    0.010    0.330
+    ngtv_ffct         0.008    0.004    2.085    0.037    0.001    0.016    0.008    0.252
+    opnnss_t_         0.012    0.015    0.772    0.440   -0.017    0.043    0.012    0.109
+    cgntv_flx        -0.007    0.005   -1.363    0.173   -0.016    0.004   -0.007   -0.193
+    slf_rtd__        -0.083    0.027   -3.060    0.002   -0.139   -0.032   -0.083   -0.476
+  AuDrA ~                                                                                 
+    arousal   (c1)    0.002    0.005    0.405    0.686   -0.007    0.011    0.002    0.041
+    avg_bhtt_  (b)   -0.038    0.031   -1.235    0.217   -0.108    0.013   -0.038   -0.102
+    pstv_ffct        -0.006    0.002   -3.076    0.002   -0.009   -0.002   -0.006   -0.506
+    ngtv_ffct        -0.000    0.001   -0.044    0.965   -0.002    0.002   -0.000   -0.004
+    opnnss_t_        -0.001    0.003   -0.198    0.843   -0.007    0.006   -0.001   -0.016
+    cgntv_flx         0.004    0.001    2.985    0.003    0.001    0.007    0.004    0.314
+    slf_rtd__        -0.011    0.012   -0.963    0.335   -0.035    0.010   -0.011   -0.171
+
+Intercepts:
+                   Estimate  Std.Err  z-value  P(>|z|) ci.lower ci.upper   Std.lv  Std.all
+   .avg_bhatt_dist    2.525    0.281    8.997    0.000    1.889    3.000    2.525    9.271
+   .AuDrA             0.427    0.112    3.821    0.000    0.231    0.675    0.427    4.213
+
+Variances:
+                   Estimate  Std.Err  z-value  P(>|z|) ci.lower ci.upper   Std.lv  Std.all
+   .avg_bhatt_dist    0.065    0.014    4.614    0.000    0.034    0.089    0.065    0.875
+   .AuDrA             0.005    0.001    6.228    0.000    0.003    0.007    0.005    0.531
+
+R-Square:
+                   Estimate
+    avg_bhatt_dist    0.125
+    AuDrA             0.469
+
+Defined Parameters:
+                   Estimate  Std.Err  z-value  P(>|z|) ci.lower ci.upper   Std.lv  Std.all
+    indirect_arosl    0.000    0.001    0.320    0.749   -0.001    0.001    0.000    0.004
+    direct_arousal    0.002    0.005    0.404    0.686   -0.007    0.011    0.002    0.041
+    total_arousal     0.002    0.005    0.452    0.651   -0.007    0.011    0.002    0.045
+
+
+
+---------------------------
+Mediator: inflection_prop_entropy 
+---------------------------
+
+lavaan 0.6-19 ended normally after 1 iteration
+
+  Estimator                                         ML
+  Optimization method                           NLMINB
+  Number of model parameters                        17
+
+  Number of observations                            90
+
+Model Test User Model:
+                                                      
+  Test statistic                                 0.000
+  Degrees of freedom                                 0
+
+Model Test Baseline Model:
+
+  Test statistic                               195.891
+  Degrees of freedom                                13
+  P-value                                        0.000
+
+User Model versus Baseline Model:
+
+  Comparative Fit Index (CFI)                    1.000
+  Tucker-Lewis Index (TLI)                       1.000
+
+Loglikelihood and Information Criteria:
+
+  Loglikelihood user model (H0)                207.926
+  Loglikelihood unrestricted model (H1)        207.926
+                                                      
+  Akaike (AIC)                                -381.851
+  Bayesian (BIC)                              -339.354
+  Sample-size adjusted Bayesian (SABIC)       -393.008
+
+Root Mean Square Error of Approximation:
+
+  RMSEA                                          0.000
+  90 Percent confidence interval - lower         0.000
+  90 Percent confidence interval - upper         0.000
+  P-value H_0: RMSEA <= 0.050                       NA
+  P-value H_0: RMSEA >= 0.080                       NA
+
+Standardized Root Mean Square Residual:
+
+  SRMR                                           0.000
+
+Parameter Estimates:
+
+  Standard errors                            Bootstrap
+  Number of requested bootstrap draws             5000
+  Number of successful bootstrap draws            4898
+
+Regressions:
+                            Estimate  Std.Err  z-value  P(>|z|) ci.lower ci.upper   Std.lv  Std.all
+  inflection_prop_entropy ~                                                                        
+    arousal   (a1)             0.003    0.008    0.346    0.730   -0.013    0.020    0.003    0.035
+    pstv_ffct                 -0.006    0.003   -1.679    0.093   -0.012    0.002   -0.006   -0.297
+    ngtv_ffct                 -0.002    0.002   -0.994    0.320   -0.006    0.002   -0.002   -0.104
+    opnnss_t_                 -0.007    0.006   -1.141    0.254   -0.019    0.005   -0.007   -0.104
+    cgntv_flx                  0.006    0.003    2.192    0.028    0.000    0.011    0.006    0.279
+    slf_rtd__                 -0.020    0.020   -0.971    0.331   -0.064    0.018   -0.020   -0.182
+  AuDrA ~                                                                                          
+    arousal   (c1)             0.001    0.003    0.337    0.736   -0.004    0.006    0.001    0.019
+    inflctn__  (b)             0.442    0.037   12.055    0.000    0.365    0.511    0.442    0.742
+    pstv_ffct                 -0.004    0.001   -4.088    0.000   -0.005   -0.002   -0.004   -0.319
+    ngtv_ffct                  0.001    0.001    0.865    0.387   -0.001    0.002    0.001    0.048
+    opnnss_t_                  0.002    0.002    0.949    0.343   -0.002    0.006    0.002    0.050
+    cgntv_flx                  0.002    0.001    1.779    0.075   -0.000    0.004    0.002    0.127
+    slf_rtd__                  0.001    0.006    0.138    0.891   -0.011    0.012    0.001    0.012
+
+Intercepts:
+                   Estimate  Std.Err  z-value  P(>|z|) ci.lower ci.upper   Std.lv  Std.all
+   .inflctn_prp_nt    0.394    0.132    2.983    0.003    0.173    0.693    0.394    2.313
+   .AuDrA             0.157    0.043    3.658    0.000    0.067    0.235    0.157    1.552
+
+Variances:
+                   Estimate  Std.Err  z-value  P(>|z|) ci.lower ci.upper   Std.lv  Std.all
+   .inflctn_prp_nt    0.020    0.002    7.946    0.000    0.013    0.023    0.020    0.676
+   .AuDrA             0.002    0.000    8.055    0.000    0.001    0.002    0.002    0.168
+
+R-Square:
+                   Estimate
+    inflctn_prp_nt    0.324
+    AuDrA             0.832
+
+Defined Parameters:
+                   Estimate  Std.Err  z-value  P(>|z|) ci.lower ci.upper   Std.lv  Std.all
+    indirect_arosl    0.001    0.004    0.347    0.729   -0.006    0.008    0.001    0.026
+    direct_arousal    0.001    0.003    0.337    0.736   -0.004    0.006    0.001    0.019
+    total_arousal     0.002    0.005    0.453    0.651   -0.007    0.011    0.002    0.045
+
+
+
+---------------------------
+Mediator: inflection_prop_bhatt 
+---------------------------
+
+lavaan 0.6-19 ended normally after 1 iteration
+
+  Estimator                                         ML
+  Optimization method                           NLMINB
+  Number of model parameters                        17
+
+  Number of observations                            90
+
+Model Test User Model:
+                                                      
+  Test statistic                                 0.000
+  Degrees of freedom                                 0
+
+Model Test Baseline Model:
+
+  Test statistic                               212.237
+  Degrees of freedom                                13
+  P-value                                        0.000
+
+User Model versus Baseline Model:
+
+  Comparative Fit Index (CFI)                    1.000
+  Tucker-Lewis Index (TLI)                       1.000
+
+Loglikelihood and Information Criteria:
+
+  Loglikelihood user model (H0)                213.351
+  Loglikelihood unrestricted model (H1)        213.351
+                                                      
+  Akaike (AIC)                                -392.702
+  Bayesian (BIC)                              -350.206
+  Sample-size adjusted Bayesian (SABIC)       -403.859
+
+Root Mean Square Error of Approximation:
+
+  RMSEA                                          0.000
+  90 Percent confidence interval - lower         0.000
+  90 Percent confidence interval - upper         0.000
+  P-value H_0: RMSEA <= 0.050                       NA
+  P-value H_0: RMSEA >= 0.080                       NA
+
+Standardized Root Mean Square Residual:
+
+  SRMR                                           0.000
+
+Parameter Estimates:
+
+  Standard errors                            Bootstrap
+  Number of requested bootstrap draws             5000
+  Number of successful bootstrap draws            4874
+
+Regressions:
+                          Estimate  Std.Err  z-value  P(>|z|) ci.lower ci.upper   Std.lv  Std.all
+  inflection_prop_bhatt ~                                                                        
+    arousal   (a1)           0.009    0.009    0.946    0.344   -0.009    0.027    0.009    0.106
+    pstv_ffct               -0.006    0.004   -1.558    0.119   -0.012    0.002   -0.006   -0.278
+    ngtv_ffct               -0.002    0.002   -0.796    0.426   -0.006    0.002   -0.002   -0.077
+    opnnss_t_               -0.010    0.006   -1.575    0.115   -0.022    0.002   -0.010   -0.138
+    cgntv_flx                0.008    0.003    2.814    0.005    0.002    0.013    0.008    0.329
+    slf_rtd__               -0.023    0.021   -1.055    0.291   -0.067    0.018   -0.023   -0.199
+  AuDrA ~                                                                                        
+    arousal   (c1)          -0.002    0.002   -0.755    0.450   -0.006    0.002   -0.002   -0.037
+    inflctn__  (b)           0.446    0.033   13.699    0.000    0.379    0.505    0.446    0.772
+    pstv_ffct               -0.004    0.001   -4.364    0.000   -0.005   -0.002   -0.004   -0.325
+    ngtv_ffct                0.000    0.001    0.628    0.530   -0.001    0.001    0.000    0.030
+    opnnss_t_                0.003    0.002    1.792    0.073   -0.000    0.007    0.003    0.080
+    cgntv_flx                0.001    0.001    1.284    0.199   -0.001    0.003    0.001    0.080
+    slf_rtd__                0.002    0.005    0.421    0.674   -0.008    0.012    0.002    0.031
+
+Intercepts:
+                   Estimate  Std.Err  z-value  P(>|z|) ci.lower ci.upper   Std.lv  Std.all
+   .inflctn_prp_bh    0.320    0.126    2.538    0.011    0.094    0.593    0.320    1.825
+   .AuDrA             0.188    0.032    5.930    0.000    0.125    0.252    0.188    1.859
+
+Variances:
+                   Estimate  Std.Err  z-value  P(>|z|) ci.lower ci.upper   Std.lv  Std.all
+   .inflctn_prp_bh    0.021    0.003    7.513    0.000    0.014    0.025    0.021    0.670
+   .AuDrA             0.001    0.000    7.521    0.000    0.001    0.002    0.001    0.141
+
+R-Square:
+                   Estimate
+    inflctn_prp_bh    0.330
+    AuDrA             0.859
+
+Defined Parameters:
+                   Estimate  Std.Err  z-value  P(>|z|) ci.lower ci.upper   Std.lv  Std.all
+    indirect_arosl    0.004    0.004    0.951    0.342   -0.004    0.012    0.004    0.082
+    direct_arousal   -0.002    0.002   -0.755    0.450   -0.006    0.002   -0.002   -0.037
+    total_arousal     0.002    0.005    0.452    0.651   -0.007    0.011    0.002    0.045
+
+
+
+---------------------------
+Mediator: DSI 
+---------------------------
+
+lavaan 0.6-19 ended normally after 1 iteration
+
+  Estimator                                         ML
+  Optimization method                           NLMINB
+  Number of model parameters                        17
+
+  Number of observations                            90
+
+Model Test User Model:
+                                                      
+  Test statistic                                 0.000
+  Degrees of freedom                                 0
+
+Model Test Baseline Model:
+
+  Test statistic                               144.867
+  Degrees of freedom                                13
+  P-value                                        0.000
+
+User Model versus Baseline Model:
+
+  Comparative Fit Index (CFI)                    1.000
+  Tucker-Lewis Index (TLI)                       1.000
+
+Loglikelihood and Information Criteria:
+
+  Loglikelihood user model (H0)                142.846
+  Loglikelihood unrestricted model (H1)        142.846
+                                                      
+  Akaike (AIC)                                -251.693
+  Bayesian (BIC)                              -209.196
+  Sample-size adjusted Bayesian (SABIC)       -262.849
+
+Root Mean Square Error of Approximation:
+
+  RMSEA                                          0.000
+  90 Percent confidence interval - lower         0.000
+  90 Percent confidence interval - upper         0.000
+  P-value H_0: RMSEA <= 0.050                       NA
+  P-value H_0: RMSEA >= 0.080                       NA
+
+Standardized Root Mean Square Residual:
+
+  SRMR                                           0.000
+
+Parameter Estimates:
+
+  Standard errors                            Bootstrap
+  Number of requested bootstrap draws             5000
+  Number of successful bootstrap draws            4976
+
+Regressions:
+                   Estimate  Std.Err  z-value  P(>|z|) ci.lower ci.upper   Std.lv  Std.all
+  DSI ~                                                                                   
+    arousal   (a1)    0.028    0.011    2.538    0.011    0.007    0.050    0.028    0.224
+    pstv_ffct        -0.010    0.004   -2.439    0.015   -0.019   -0.002   -0.010   -0.350
+    ngtv_ffct        -0.010    0.003   -3.705    0.000   -0.016   -0.005   -0.010   -0.333
+    opnnss_t_        -0.016    0.007   -2.228    0.026   -0.031   -0.002   -0.016   -0.156
+    cgntv_flx         0.012    0.004    3.304    0.001    0.005    0.020    0.012    0.356
+    slf_rtd__        -0.005    0.027   -0.201    0.840   -0.058    0.048   -0.005   -0.031
+  AuDrA ~                                                                                 
+    arousal   (c1)   -0.004    0.004   -0.929    0.353   -0.012    0.004   -0.004   -0.083
+    DSI        (b)    0.220    0.029    7.530    0.000    0.161    0.276    0.220    0.574
+    pstv_ffct        -0.004    0.002   -2.560    0.010   -0.007   -0.001   -0.004   -0.339
+    ngtv_ffct         0.002    0.001    2.115    0.034    0.000    0.004    0.002    0.162
+    opnnss_t_         0.003    0.003    0.901    0.368   -0.003    0.008    0.003    0.063
+    cgntv_flx         0.002    0.001    1.418    0.156   -0.001    0.004    0.002    0.129
+    slf_rtd__        -0.007    0.009   -0.737    0.461   -0.027    0.010   -0.007   -0.104
+
+Intercepts:
+                   Estimate  Std.Err  z-value  P(>|z|) ci.lower ci.upper   Std.lv  Std.all
+   .DSI               0.449    0.173    2.592    0.010    0.092    0.788    0.449    1.701
+   .AuDrA             0.232    0.054    4.334    0.000    0.140    0.352    0.232    2.292
+
+Variances:
+                   Estimate  Std.Err  z-value  P(>|z|) ci.lower ci.upper   Std.lv  Std.all
+   .DSI               0.039    0.006    6.941    0.000    0.026    0.048    0.039    0.564
+   .AuDrA             0.004    0.001    5.777    0.000    0.002    0.005    0.004    0.355
+
+R-Square:
+                   Estimate
+    DSI               0.436
+    AuDrA             0.645
+
+Defined Parameters:
+                   Estimate  Std.Err  z-value  P(>|z|) ci.lower ci.upper   Std.lv  Std.all
+    indirect_arosl    0.006    0.002    2.433    0.015    0.001    0.011    0.006    0.128
+    direct_arousal   -0.004    0.004   -0.929    0.353   -0.012    0.004   -0.004   -0.083
+    total_arousal     0.002    0.005    0.452    0.651   -0.007    0.011    0.002    0.045
+

@@ -1,8 +1,20 @@
 ===== Pearson Correlation Matrix Among Flexibility Measures =====
 
-                        avg_entropy avg_bhatt_dist inflection_prop_entropy inflection_prop_bhatt    DSI
-avg_entropy                   1.000          0.827                  -0.113                -0.118 -0.179
-avg_bhatt_dist                0.827          1.000                  -0.018                 0.007 -0.121
-inflection_prop_entropy      -0.113         -0.018                   1.000                 0.877  0.495
-inflection_prop_bhatt        -0.118          0.007                   0.877                 1.000  0.518
-DSI                          -0.179         -0.121                   0.495                 0.518  1.000
+                       Avg. Entropy Avg. Bhatt. Dist. Inflect. Prop. Entropy
+Avg. Entropy                  1.000             0.827                 -0.113
+Avg. Bhatt. Dist.             0.827             1.000                 -0.018
+Inflect. Prop. Entropy       -0.113            -0.018                  1.000
+Inflect. Prop. Bhatt         -0.118             0.007                  0.877
+DSI                          -0.179            -0.121                  0.495
+AuDrA                        -0.191            -0.067                  0.772
+                       Inflect. Prop. Bhatt    DSI  AuDrA
+Avg. Entropy                         -0.118 -0.179 -0.191
+Avg. Bhatt. Dist.                     0.007 -0.121 -0.067
+Inflect. Prop. Entropy                0.877  0.495  0.772
+Inflect. Prop. Bhatt                  1.000  0.518  0.772
+DSI                                   0.518  1.000  0.545
+AuDrA                                 0.772  0.545  1.000
+
+Note. Avg. Entropy = Average Entropy; Avg. Bhatt. Dist. = Average Bhattacharyya Distance;
+Inflect. Prop. Entropy = Inflection Proportion of Entropy; Inflect. Prop. Bhatt = Inflection Proportion of Bhattacharyya Distance;
+DSI = Divergent Semantic Integration; AuDrA = Automated Drawing Assessment (Originality Score).

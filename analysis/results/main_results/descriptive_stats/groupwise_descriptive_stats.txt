@@ -1,9 +1,16 @@
 ===== Descriptive Statistics by Group (M (SD)) =====
 
-                 measure Neutral Group Positive Valence & High Arousal Group Positive Valence & Low Arousal Group
-                   AuDrA   0.37 (0.10)                           0.36 (0.10)                          0.37 (0.11)
-                     DSI   0.59 (0.28)                           0.66 (0.22)                          0.58 (0.30)
-          avg_bhatt_dist   2.51 (0.29)                           2.50 (0.25)                          2.45 (0.28)
-             avg_entropy   1.77 (0.09)                           1.78 (0.07)                          1.74 (0.10)
-   inflection_prop_bhatt   0.42 (0.18)                           0.43 (0.16)                          0.44 (0.20)
- inflection_prop_entropy   0.41 (0.18)                           0.42 (0.17)                          0.45 (0.17)
+                 measure Neutral Group Positive Valence & High Arousal Group
+                   AuDrA   0.37 (0.10)                           0.36 (0.10)
+                     DSI   0.59 (0.28)                           0.66 (0.22)
+          avg_bhatt_dist   2.51 (0.29)                           2.50 (0.25)
+             avg_entropy   1.77 (0.09)                           1.78 (0.07)
+   inflection_prop_bhatt   0.42 (0.18)                           0.43 (0.16)
+ inflection_prop_entropy   0.41 (0.18)                           0.42 (0.17)
+ Positive Valence & Low Arousal Group
+                          0.37 (0.11)
+                          0.58 (0.30)
+                          2.45 (0.28)
+                          1.74 (0.10)
+                          0.44 (0.20)
+                          0.45 (0.17)

@@ -1,0 +1,144 @@
+===== Multilevel mediation models (lme4 + mediation) =====
+
+
+
+---------------------------
+Mediator: avg_entropy 
+---------------------------
+
+
+Causal Mediation Analysis 
+
+Quasi-Bayesian Confidence Intervals
+
+Mediator Groups: id 
+
+Outcome Groups: id 
+
+Output Based on Overall Averages Across Groups 
+
+                Estimate 95% CI Lower 95% CI Upper p-value
+ACME            0.000159    -0.000901         0.00    0.75
+ADE            -0.007339    -0.019118         0.00    0.21
+Total Effect   -0.007179    -0.019116         0.00    0.22
+Prop. Mediated -0.009220    -0.564663         0.51    0.83
+
+Sample Size Used: 180 
+
+
+Simulations: 5000 
+
+
+
+---------------------------
+Mediator: avg_bhatt_dist 
+---------------------------
+
+
+Causal Mediation Analysis 
+
+Quasi-Bayesian Confidence Intervals
+
+Mediator Groups: id 
+
+Outcome Groups: id 
+
+Output Based on Overall Averages Across Groups 
+
+                Estimate 95% CI Lower 95% CI Upper p-value
+ACME            0.000423    -0.000374         0.00    0.35
+ADE            -0.007548    -0.019346         0.00    0.21
+Total Effect   -0.007125    -0.018983         0.00    0.24
+Prop. Mediated -0.032188    -0.771145         0.65    0.51
+
+Sample Size Used: 180 
+
+
+Simulations: 5000 
+
+
+
+---------------------------
+Mediator: inflection_prop_entropy 
+---------------------------
+
+
+Causal Mediation Analysis 
+
+Quasi-Bayesian Confidence Intervals
+
+Mediator Groups: id 
+
+Outcome Groups: id 
+
+Output Based on Overall Averages Across Groups 
+
+               Estimate 95% CI Lower 95% CI Upper p-value
+ACME           -0.00387     -0.01061         0.00    0.26
+ADE            -0.00316     -0.00985         0.00    0.35
+Total Effect   -0.00704     -0.01665         0.00    0.15
+Prop. Mediated  0.54467     -1.48727         3.01    0.22
+
+Sample Size Used: 180 
+
+
+Simulations: 5000 
+
+
+
+---------------------------
+Mediator: inflection_prop_bhatt 
+---------------------------
+
+
+Causal Mediation Analysis 
+
+Quasi-Bayesian Confidence Intervals
+
+Mediator Groups: id 
+
+Outcome Groups: id 
+
+Output Based on Overall Averages Across Groups 
+
+               Estimate 95% CI Lower 95% CI Upper p-value
+ACME           -0.00193     -0.00935         0.01    0.62
+ADE            -0.00518     -0.01147         0.00    0.11
+Total Effect   -0.00711     -0.01667         0.00    0.16
+Prop. Mediated  0.33455     -2.83269         3.72    0.49
+
+Sample Size Used: 180 
+
+
+Simulations: 5000 
+
+
+
+---------------------------
+Mediator: DSI 
+---------------------------
+
+
+Causal Mediation Analysis 
+
+Quasi-Bayesian Confidence Intervals
+
+Mediator Groups: id 
+
+Outcome Groups: id 
+
+Output Based on Overall Averages Across Groups 
+
+               Estimate 95% CI Lower 95% CI Upper p-value  
+ACME            0.00238     -0.00394         0.01   0.464  
+ADE            -0.00941     -0.01816         0.00   0.027 *
+Total Effect   -0.00703     -0.01782         0.00   0.187  
+Prop. Mediated -0.20849     -7.02582         5.43   0.644  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Sample Size Used: 180 
+
+
+Simulations: 5000 
+

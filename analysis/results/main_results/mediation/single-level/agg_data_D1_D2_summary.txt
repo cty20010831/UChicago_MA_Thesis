@@ -1,0 +1,506 @@
+===== Summary of lavaan mediation models (multiple mediators) =====
+
+
+---------------------------
+Mediator: avg_entropy 
+---------------------------
+
+lavaan 0.6-19 ended normally after 1 iteration
+
+  Estimator                                         ML
+  Optimization method                           NLMINB
+  Number of model parameters                        19
+
+  Number of observations                            90
+
+Model Test User Model:
+                                                      
+  Test statistic                                 0.000
+  Degrees of freedom                                 0
+
+Model Test Baseline Model:
+
+  Test statistic                                79.474
+  Degrees of freedom                                15
+  P-value                                        0.000
+
+User Model versus Baseline Model:
+
+  Comparative Fit Index (CFI)                    1.000
+  Tucker-Lewis Index (TLI)                       1.000
+
+Loglikelihood and Information Criteria:
+
+  Loglikelihood user model (H0)                210.197
+  Loglikelihood unrestricted model (H1)        210.197
+                                                      
+  Akaike (AIC)                                -382.395
+  Bayesian (BIC)                              -334.898
+  Sample-size adjusted Bayesian (SABIC)       -394.864
+
+Root Mean Square Error of Approximation:
+
+  RMSEA                                          0.000
+  90 Percent confidence interval - lower         0.000
+  90 Percent confidence interval - upper         0.000
+  P-value H_0: RMSEA <= 0.050                       NA
+  P-value H_0: RMSEA >= 0.080                       NA
+
+Standardized Root Mean Square Residual:
+
+  SRMR                                           0.000
+
+Parameter Estimates:
+
+  Standard errors                            Bootstrap
+  Number of requested bootstrap draws             5000
+  Number of successful bootstrap draws            4931
+
+Regressions:
+                   Estimate  Std.Err  z-value  P(>|z|) ci.lower ci.upper   Std.lv  Std.all
+  avg_entropy ~                                                                           
+    D1        (a1)   -0.010    0.022   -0.459    0.646   -0.054    0.034   -0.010   -0.055
+    D2        (a2)   -0.046    0.022   -2.060    0.039   -0.091   -0.002   -0.046   -0.251
+    pstv_ffct         0.005    0.002    3.194    0.001    0.002    0.009    0.005    0.547
+    ngtv_ffct         0.002    0.001    1.562    0.118   -0.000    0.004    0.002    0.173
+    opnnss_t_         0.004    0.004    0.984    0.325   -0.004    0.013    0.004    0.123
+    cgntv_flx        -0.003    0.002   -1.553    0.121   -0.006    0.001   -0.003   -0.242
+    slf_rtd__        -0.031    0.010   -3.067    0.002   -0.053   -0.013   -0.031   -0.562
+  AuDrA ~                                                                                 
+    D1        (c1)   -0.006    0.020   -0.307    0.759   -0.043    0.034   -0.006   -0.028
+    D2        (c2)   -0.005    0.022   -0.226    0.821   -0.047    0.039   -0.005   -0.023
+    avg_ntrpy  (b)   -0.255    0.099   -2.581    0.010   -0.450   -0.058   -0.255   -0.219
+    pstv_ffct        -0.005    0.002   -2.381    0.017   -0.009   -0.001   -0.005   -0.423
+    ngtv_ffct        -0.000    0.001   -0.024    0.981   -0.002    0.002   -0.000   -0.002
+    opnnss_t_         0.000    0.003    0.056    0.955   -0.006    0.006    0.000    0.005
+    cgntv_flx         0.004    0.001    2.545    0.011    0.001    0.007    0.004    0.277
+    slf_rtd__        -0.014    0.011   -1.273    0.203   -0.037    0.008   -0.014   -0.221
+
+Intercepts:
+                   Estimate  Std.Err  z-value  P(>|z|) ci.lower ci.upper   Std.lv  Std.all
+   .avg_entropy       1.775    0.087   20.420    0.000    1.583    1.925    1.775   20.431
+   .AuDrA             0.793    0.200    3.962    0.000    0.398    1.190    0.793    7.825
+
+Variances:
+                   Estimate  Std.Err  z-value  P(>|z|) ci.lower ci.upper   Std.lv  Std.all
+   .avg_entropy       0.006    0.001    7.290    0.000    0.004    0.007    0.006    0.826
+   .AuDrA             0.005    0.001    5.844    0.000    0.003    0.007    0.005    0.501
+
+R-Square:
+                   Estimate
+    avg_entropy       0.174
+    AuDrA             0.499
+
+Defined Parameters:
+                   Estimate  Std.Err  z-value  P(>|z|) ci.lower ci.upper   Std.lv  Std.all
+    indirect_D1       0.003    0.006    0.424    0.672   -0.010    0.015    0.003    0.012
+    direct_D1        -0.006    0.020   -0.307    0.759   -0.043    0.034   -0.006   -0.028
+    total_D1         -0.003    0.020   -0.174    0.862   -0.042    0.036   -0.003   -0.016
+    indirect_D2       0.012    0.007    1.615    0.106   -0.000    0.028    0.012    0.055
+    direct_D2        -0.005    0.022   -0.226    0.821   -0.047    0.039   -0.005   -0.023
+    total_D2          0.007    0.021    0.321    0.749   -0.035    0.049    0.007    0.032
+
+
+
+---------------------------
+Mediator: avg_bhatt_dist 
+---------------------------
+
+lavaan 0.6-19 ended normally after 1 iteration
+
+  Estimator                                         ML
+  Optimization method                           NLMINB
+  Number of model parameters                        19
+
+  Number of observations                            90
+
+Model Test User Model:
+                                                      
+  Test statistic                                 0.000
+  Degrees of freedom                                 0
+
+Model Test Baseline Model:
+
+  Test statistic                                71.373
+  Degrees of freedom                                15
+  P-value                                        0.000
+
+User Model versus Baseline Model:
+
+  Comparative Fit Index (CFI)                    1.000
+  Tucker-Lewis Index (TLI)                       1.000
+
+Loglikelihood and Information Criteria:
+
+  Loglikelihood user model (H0)                103.322
+  Loglikelihood unrestricted model (H1)        103.322
+                                                      
+  Akaike (AIC)                                -168.644
+  Bayesian (BIC)                              -121.148
+  Sample-size adjusted Bayesian (SABIC)       -181.113
+
+Root Mean Square Error of Approximation:
+
+  RMSEA                                          0.000
+  90 Percent confidence interval - lower         0.000
+  90 Percent confidence interval - upper         0.000
+  P-value H_0: RMSEA <= 0.050                       NA
+  P-value H_0: RMSEA >= 0.080                       NA
+
+Standardized Root Mean Square Residual:
+
+  SRMR                                           0.000
+
+Parameter Estimates:
+
+  Standard errors                            Bootstrap
+  Number of requested bootstrap draws             5000
+  Number of successful bootstrap draws            4979
+
+Regressions:
+                   Estimate  Std.Err  z-value  P(>|z|) ci.lower ci.upper   Std.lv  Std.all
+  avg_bhatt_dist ~                                                                        
+    D1        (a1)   -0.042    0.070   -0.595    0.552   -0.182    0.090   -0.042   -0.072
+    D2        (a2)   -0.107    0.068   -1.584    0.113   -0.248    0.022   -0.107   -0.186
+    pstv_ffct         0.011    0.005    2.413    0.016    0.002    0.020    0.011    0.361
+    ngtv_ffct         0.008    0.004    2.223    0.026    0.002    0.016    0.008    0.266
+    opnnss_t_         0.014    0.014    0.978    0.328   -0.013    0.044    0.014    0.131
+    cgntv_flx        -0.007    0.005   -1.434    0.152   -0.016    0.004   -0.007   -0.199
+    slf_rtd__        -0.094    0.028   -3.295    0.001   -0.152   -0.040   -0.094   -0.533
+  AuDrA ~                                                                                 
+    D1        (c1)   -0.005    0.020   -0.249    0.803   -0.043    0.035   -0.005   -0.023
+    D2        (c2)    0.003    0.022    0.127    0.899   -0.040    0.047    0.003    0.013
+    avg_bhtt_  (b)   -0.037    0.032   -1.177    0.239   -0.110    0.016   -0.037   -0.101
+    pstv_ffct        -0.006    0.002   -3.104    0.002   -0.009   -0.002   -0.006   -0.507
+    ngtv_ffct        -0.000    0.001   -0.148    0.882   -0.002    0.002   -0.000   -0.013
+    opnnss_t_        -0.000    0.003   -0.114    0.909   -0.007    0.006   -0.000   -0.009
+    cgntv_flx         0.004    0.001    2.841    0.004    0.001    0.007    0.004    0.310
+    slf_rtd__        -0.010    0.010   -0.945    0.345   -0.031    0.011   -0.010   -0.152
+
+Intercepts:
+                   Estimate  Std.Err  z-value  P(>|z|) ci.lower ci.upper   Std.lv  Std.all
+   .avg_bhatt_dist    2.528    0.269    9.386    0.000    1.920    2.994    2.528    9.280
+   .AuDrA             0.435    0.110    3.961    0.000    0.239    0.676    0.435    4.293
+
+Variances:
+                   Estimate  Std.Err  z-value  P(>|z|) ci.lower ci.upper   Std.lv  Std.all
+   .avg_bhatt_dist    0.063    0.014    4.564    0.000    0.033    0.086    0.063    0.851
+   .AuDrA             0.005    0.001    6.242    0.000    0.003    0.007    0.005    0.532
+
+R-Square:
+                   Estimate
+    avg_bhatt_dist    0.149
+    AuDrA             0.468
+
+Defined Parameters:
+                   Estimate  Std.Err  z-value  P(>|z|) ci.lower ci.upper   Std.lv  Std.all
+    indirect_D1       0.002    0.004    0.443    0.658   -0.005    0.009    0.002    0.007
+    direct_D1        -0.005    0.020   -0.249    0.803   -0.043    0.035   -0.005   -0.023
+    total_D1         -0.003    0.020   -0.174    0.862   -0.042    0.036   -0.003   -0.016
+    indirect_D2       0.004    0.004    0.917    0.359   -0.003    0.015    0.004    0.019
+    direct_D2         0.003    0.022    0.127    0.899   -0.040    0.047    0.003    0.013
+    total_D2          0.007    0.021    0.320    0.749   -0.035    0.049    0.007    0.032
+
+
+
+---------------------------
+Mediator: inflection_prop_entropy 
+---------------------------
+
+lavaan 0.6-19 ended normally after 1 iteration
+
+  Estimator                                         ML
+  Optimization method                           NLMINB
+  Number of model parameters                        19
+
+  Number of observations                            90
+
+Model Test User Model:
+                                                      
+  Test statistic                                 0.000
+  Degrees of freedom                                 0
+
+Model Test Baseline Model:
+
+  Test statistic                               198.412
+  Degrees of freedom                                15
+  P-value                                        0.000
+
+User Model versus Baseline Model:
+
+  Comparative Fit Index (CFI)                    1.000
+  Tucker-Lewis Index (TLI)                       1.000
+
+Loglikelihood and Information Criteria:
+
+  Loglikelihood user model (H0)                209.186
+  Loglikelihood unrestricted model (H1)        209.186
+                                                      
+  Akaike (AIC)                                -380.372
+  Bayesian (BIC)                              -332.875
+  Sample-size adjusted Bayesian (SABIC)       -392.841
+
+Root Mean Square Error of Approximation:
+
+  RMSEA                                          0.000
+  90 Percent confidence interval - lower         0.000
+  90 Percent confidence interval - upper         0.000
+  P-value H_0: RMSEA <= 0.050                       NA
+  P-value H_0: RMSEA >= 0.080                       NA
+
+Standardized Root Mean Square Residual:
+
+  SRMR                                           0.000
+
+Parameter Estimates:
+
+  Standard errors                            Bootstrap
+  Number of requested bootstrap draws             5000
+  Number of successful bootstrap draws            4771
+
+Regressions:
+                            Estimate  Std.Err  z-value  P(>|z|) ci.lower ci.upper   Std.lv  Std.all
+  inflection_prop_entropy ~                                                                        
+    D1        (a1)             0.018    0.039    0.455    0.649   -0.059    0.095    0.018    0.050
+    D2        (a2)             0.042    0.038    1.108    0.268   -0.033    0.118    0.042    0.118
+    pstv_ffct                 -0.006    0.003   -1.760    0.078   -0.012    0.001   -0.006   -0.317
+    ngtv_ffct                 -0.002    0.002   -1.091    0.275   -0.007    0.001   -0.002   -0.115
+    opnnss_t_                 -0.008    0.006   -1.280    0.200   -0.020    0.003   -0.008   -0.117
+    cgntv_flx                  0.006    0.003    2.113    0.035    0.000    0.012    0.006    0.282
+    slf_rtd__                 -0.016    0.019   -0.799    0.424   -0.055    0.021   -0.016   -0.141
+  AuDrA ~                                                                                          
+    D1        (c1)            -0.011    0.012   -0.983    0.326   -0.034    0.013   -0.011   -0.053
+    D2        (c2)            -0.012    0.011   -1.069    0.285   -0.033    0.011   -0.012   -0.056
+    inflctn__  (b)             0.447    0.036   12.284    0.000    0.370    0.515    0.447    0.750
+    pstv_ffct                 -0.004    0.001   -3.962    0.000   -0.005   -0.002   -0.004   -0.305
+    ngtv_ffct                  0.001    0.001    0.853    0.394   -0.001    0.002    0.001    0.046
+    opnnss_t_                  0.003    0.002    1.262    0.207   -0.001    0.007    0.003    0.065
+    cgntv_flx                  0.002    0.001    1.634    0.102   -0.000    0.004    0.002    0.119
+    slf_rtd__                  0.001    0.005    0.096    0.923   -0.009    0.011    0.001    0.008
+
+Intercepts:
+                   Estimate  Std.Err  z-value  P(>|z|) ci.lower ci.upper   Std.lv  Std.all
+   .inflctn_prp_nt    0.397    0.129    3.066    0.002    0.178    0.685    0.397    2.332
+   .AuDrA             0.163    0.041    3.944    0.000    0.073    0.235    0.163    1.612
+
+Variances:
+                   Estimate  Std.Err  z-value  P(>|z|) ci.lower ci.upper   Std.lv  Std.all
+   .inflctn_prp_nt    0.019    0.002    7.899    0.000    0.013    0.023    0.019    0.667
+   .AuDrA             0.002    0.000    8.169    0.000    0.001    0.002    0.002    0.165
+
+R-Square:
+                   Estimate
+    inflctn_prp_nt    0.333
+    AuDrA             0.835
+
+Defined Parameters:
+                   Estimate  Std.Err  z-value  P(>|z|) ci.lower ci.upper   Std.lv  Std.all
+    indirect_D1       0.008    0.018    0.452    0.652   -0.027    0.043    0.008    0.037
+    direct_D1        -0.011    0.012   -0.983    0.326   -0.034    0.013   -0.011   -0.053
+    total_D1         -0.003    0.020   -0.174    0.862   -0.042    0.036   -0.003   -0.016
+    indirect_D2       0.019    0.017    1.112    0.266   -0.015    0.052    0.019    0.088
+    direct_D2        -0.012    0.011   -1.069    0.285   -0.033    0.011   -0.012   -0.056
+    total_D2          0.007    0.021    0.319    0.749   -0.035    0.049    0.007    0.032
+
+
+
+---------------------------
+Mediator: inflection_prop_bhatt 
+---------------------------
+
+lavaan 0.6-19 ended normally after 1 iteration
+
+  Estimator                                         ML
+  Optimization method                           NLMINB
+  Number of model parameters                        19
+
+  Number of observations                            90
+
+Model Test User Model:
+                                                      
+  Test statistic                                 0.000
+  Degrees of freedom                                 0
+
+Model Test Baseline Model:
+
+  Test statistic                               212.999
+  Degrees of freedom                                15
+  P-value                                        0.000
+
+User Model versus Baseline Model:
+
+  Comparative Fit Index (CFI)                    1.000
+  Tucker-Lewis Index (TLI)                       1.000
+
+Loglikelihood and Information Criteria:
+
+  Loglikelihood user model (H0)                213.733
+  Loglikelihood unrestricted model (H1)        213.733
+                                                      
+  Akaike (AIC)                                -389.465
+  Bayesian (BIC)                              -341.969
+  Sample-size adjusted Bayesian (SABIC)       -401.934
+
+Root Mean Square Error of Approximation:
+
+  RMSEA                                          0.000
+  90 Percent confidence interval - lower         0.000
+  90 Percent confidence interval - upper         0.000
+  P-value H_0: RMSEA <= 0.050                       NA
+  P-value H_0: RMSEA >= 0.080                       NA
+
+Standardized Root Mean Square Residual:
+
+  SRMR                                           0.000
+
+Parameter Estimates:
+
+  Standard errors                            Bootstrap
+  Number of requested bootstrap draws             5000
+  Number of successful bootstrap draws            4722
+
+Regressions:
+                          Estimate  Std.Err  z-value  P(>|z|) ci.lower ci.upper   Std.lv  Std.all
+  inflection_prop_bhatt ~                                                                        
+    D1        (a1)           0.024    0.040    0.613    0.540   -0.052    0.103    0.024    0.065
+    D2        (a2)           0.027    0.041    0.659    0.510   -0.055    0.107    0.027    0.073
+    pstv_ffct               -0.006    0.004   -1.598    0.110   -0.012    0.002   -0.006   -0.290
+    ngtv_ffct               -0.002    0.002   -0.987    0.324   -0.006    0.002   -0.002   -0.097
+    opnnss_t_               -0.010    0.006   -1.572    0.116   -0.023    0.002   -0.010   -0.142
+    cgntv_flx                0.007    0.003    2.543    0.011    0.001    0.013    0.007    0.318
+    slf_rtd__               -0.016    0.020   -0.807    0.419   -0.057    0.022   -0.016   -0.143
+  AuDrA ~                                                                                        
+    D1        (c1)          -0.014    0.010   -1.398    0.162   -0.034    0.007   -0.014   -0.066
+    D2        (c2)          -0.005    0.010   -0.511    0.609   -0.025    0.016   -0.005   -0.024
+    inflctn__  (b)           0.446    0.033   13.675    0.000    0.378    0.506    0.446    0.771
+    pstv_ffct               -0.004    0.001   -4.262    0.000   -0.005   -0.002   -0.004   -0.319
+    ngtv_ffct                0.000    0.001    0.767    0.443   -0.001    0.001    0.000    0.035
+    opnnss_t_                0.003    0.002    1.987    0.047    0.000    0.007    0.003    0.087
+    cgntv_flx                0.001    0.001    1.348    0.178   -0.001    0.003    0.001    0.085
+    slf_rtd__                0.001    0.005    0.171    0.864   -0.008    0.010    0.001    0.012
+
+Intercepts:
+                   Estimate  Std.Err  z-value  P(>|z|) ci.lower ci.upper   Std.lv  Std.all
+   .inflctn_prp_bh    0.359    0.122    2.946    0.003    0.144    0.624    0.359    2.047
+   .AuDrA             0.181    0.031    5.747    0.000    0.115    0.241    0.181    1.781
+
+Variances:
+                   Estimate  Std.Err  z-value  P(>|z|) ci.lower ci.upper   Std.lv  Std.all
+   .inflctn_prp_bh    0.021    0.003    7.389    0.000    0.014    0.025    0.021    0.674
+   .AuDrA             0.001    0.000    7.696    0.000    0.001    0.002    0.001    0.139
+
+R-Square:
+                   Estimate
+    inflctn_prp_bh    0.326
+    AuDrA             0.861
+
+Defined Parameters:
+                   Estimate  Std.Err  z-value  P(>|z|) ci.lower ci.upper   Std.lv  Std.all
+    indirect_D1       0.011    0.018    0.610    0.542   -0.024    0.046    0.011    0.050
+    direct_D1        -0.014    0.010   -1.398    0.162   -0.034    0.007   -0.014   -0.066
+    total_D1         -0.003    0.020   -0.173    0.862   -0.042    0.036   -0.003   -0.016
+    indirect_D2       0.012    0.018    0.657    0.511   -0.025    0.047    0.012    0.056
+    direct_D2        -0.005    0.010   -0.511    0.609   -0.025    0.016   -0.005   -0.024
+    total_D2          0.007    0.021    0.319    0.750   -0.035    0.049    0.007    0.032
+
+
+
+---------------------------
+Mediator: DSI 
+---------------------------
+
+lavaan 0.6-19 ended normally after 1 iteration
+
+  Estimator                                         ML
+  Optimization method                           NLMINB
+  Number of model parameters                        19
+
+  Number of observations                            90
+
+Model Test User Model:
+                                                      
+  Test statistic                                 0.000
+  Degrees of freedom                                 0
+
+Model Test Baseline Model:
+
+  Test statistic                               142.840
+  Degrees of freedom                                15
+  P-value                                        0.000
+
+User Model versus Baseline Model:
+
+  Comparative Fit Index (CFI)                    1.000
+  Tucker-Lewis Index (TLI)                       1.000
+
+Loglikelihood and Information Criteria:
+
+  Loglikelihood user model (H0)                141.833
+  Loglikelihood unrestricted model (H1)        141.833
+                                                      
+  Akaike (AIC)                                -245.666
+  Bayesian (BIC)                              -198.169
+  Sample-size adjusted Bayesian (SABIC)       -258.135
+
+Root Mean Square Error of Approximation:
+
+  RMSEA                                          0.000
+  90 Percent confidence interval - lower         0.000
+  90 Percent confidence interval - upper         0.000
+  P-value H_0: RMSEA <= 0.050                       NA
+  P-value H_0: RMSEA >= 0.080                       NA
+
+Standardized Root Mean Square Residual:
+
+  SRMR                                           0.000
+
+Parameter Estimates:
+
+  Standard errors                            Bootstrap
+  Number of requested bootstrap draws             5000
+  Number of successful bootstrap draws            4923
+
+Regressions:
+                   Estimate  Std.Err  z-value  P(>|z|) ci.lower ci.upper   Std.lv  Std.all
+  DSI ~                                                                                   
+    D1        (a1)    0.078    0.056    1.397    0.163   -0.027    0.192    0.078    0.139
+    D2        (a2)    0.008    0.059    0.129    0.897   -0.105    0.125    0.008    0.014
+    pstv_ffct        -0.011    0.004   -2.380    0.017   -0.019   -0.002   -0.011   -0.352
+    ngtv_ffct        -0.011    0.003   -3.671    0.000   -0.017   -0.006   -0.011   -0.369
+    opnnss_t_        -0.016    0.008   -2.003    0.045   -0.032   -0.000   -0.016   -0.154
+    cgntv_flx         0.011    0.004    2.768    0.006    0.003    0.019    0.011    0.322
+    slf_rtd__         0.010    0.027    0.356    0.722   -0.041    0.063    0.010    0.056
+  AuDrA ~                                                                                 
+    D1        (c1)   -0.021    0.016   -1.246    0.213   -0.053    0.012   -0.021   -0.095
+    D2        (c2)    0.005    0.016    0.319    0.749   -0.026    0.037    0.005    0.024
+    DSI        (b)    0.219    0.027    8.049    0.000    0.167    0.274    0.219    0.572
+    pstv_ffct        -0.004    0.002   -2.570    0.010   -0.007   -0.001   -0.004   -0.342
+    ngtv_ffct         0.002    0.001    2.298    0.022    0.000    0.004    0.002    0.171
+    opnnss_t_         0.003    0.003    0.928    0.354   -0.003    0.008    0.003    0.066
+    cgntv_flx         0.002    0.001    1.578    0.115   -0.001    0.004    0.002    0.146
+    slf_rtd__        -0.009    0.008   -1.045    0.296   -0.026    0.007   -0.009   -0.130
+
+Intercepts:
+                   Estimate  Std.Err  z-value  P(>|z|) ci.lower ci.upper   Std.lv  Std.all
+   .DSI               0.596    0.168    3.551    0.000    0.286    0.953    0.596    2.255
+   .AuDrA             0.210    0.050    4.218    0.000    0.119    0.314    0.210    2.071
+
+Variances:
+                   Estimate  Std.Err  z-value  P(>|z|) ci.lower ci.upper   Std.lv  Std.all
+   .DSI               0.041    0.006    7.229    0.000    0.027    0.049    0.041    0.587
+   .AuDrA             0.004    0.001    5.780    0.000    0.002    0.005    0.004    0.348
+
+R-Square:
+                   Estimate
+    DSI               0.413
+    AuDrA             0.652
+
+Defined Parameters:
+                   Estimate  Std.Err  z-value  P(>|z|) ci.lower ci.upper   Std.lv  Std.all
+    indirect_D1       0.017    0.013    1.349    0.177   -0.006    0.045    0.017    0.079
+    direct_D1        -0.021    0.016   -1.246    0.213   -0.053    0.012   -0.021   -0.095
+    total_D1         -0.003    0.020   -0.174    0.862   -0.042    0.036   -0.003   -0.016
+    indirect_D2       0.002    0.013    0.128    0.898   -0.023    0.028    0.002    0.008
+    direct_D2         0.005    0.016    0.319    0.749   -0.026    0.037    0.005    0.024
+    total_D2          0.007    0.021    0.320    0.749   -0.035    0.049    0.007    0.032
+

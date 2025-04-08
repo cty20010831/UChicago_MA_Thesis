@@ -1,0 +1,16 @@
+===== Demographic Summary =====
+
+Age range: 22 to 77 (M = 41.6, SD = 11.4)
+
+Gender distribution:
+- Female: 34 (37.8%)
+- Male: 55 (61.1%)
+- Transgender Female: 1 (1.1%)
+
+Education levels:
+- Bachelor degree: 60 (66.7%)
+- Graduate degree (Master, Doctorate): 11 (12.2%)
+- High school graduate or equivalent: 17 (18.9%)
+- No high school diploma: 2 (2.2%)
+
+Percentage with bachelor's degree or higher: 78.9%
