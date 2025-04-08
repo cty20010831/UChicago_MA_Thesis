@@ -6,6 +6,7 @@ import pandas as pd
 import argparse
 import cv2
 import numpy as np
+import re
 
 # Define arguments for argparse
 parser = argparse.ArgumentParser(
@@ -134,13 +135,13 @@ def main():
         save_png_path = os.path.join(png_directory, batch_name)
         save_ndjson_path = os.path.join(ndjson_directory, batch_name)
 
-        # Check whether the directory exists (i.e., whether the batch has been processed)
-        if os.path.exists(save_png_path) and os.path.exists(save_ndjson_path):
-            print(f"Skipping {batch_name} because it has already been processed")
-            continue
-        else: 
-            os.makedirs(save_png_path, exist_ok=True)
-            os.makedirs(save_ndjson_path, exist_ok=True)
+        # # Check whether the directory exists (i.e., whether the batch has been processed)
+        # if os.path.exists(save_png_path) and os.path.exists(save_ndjson_path):
+        #     print(f"Skipping {batch_name} because it has already been processed")
+        #     continue
+        # else: 
+        #     os.makedirs(save_png_path, exist_ok=True)
+        #     os.makedirs(save_ndjson_path, exist_ok=True)
 
         # Process each CSV file in the batch folder
         for file in glob.glob(os.path.join(batch_folder, "*.csv")):
@@ -153,9 +154,8 @@ def main():
             # Extract stroke
             strokes_df = df.loc[df['trial_type'] == "sketchpad"]["strokes"]
             background_image_df = df.loc[df['trial_type'] == "sketchpad"]["backgroundImage"]
-            groups = ["A", "B", "C"] # groups of incomplete shapes
             for i, v in enumerate(strokes_df):
-                group = groups[i]
+                group = re.search(r'Group_\d+', background_image_df.iloc[i]).group(0)
                 strokes = json.loads(v)
 
                 # Prepend the background image to the strokes
@@ -168,11 +168,11 @@ def main():
 
                 # Save the image as png
                 image = draw_image(combined_strokes)
-                image.save(os.path.join(save_png_path, f"{worker_id}_Group_{group}.png"))
+                image.save(os.path.join(save_png_path, f"{worker_id}_{group}.png"))
 
                 # Save the strokes as ndjson
                 strokes_ndjson = convert_strokes_to_ndjson(combined_strokes)
-                with open(os.path.join(save_ndjson_path, f"{worker_id}_Group_{group}.ndjson"), "w") as f:
+                with open(os.path.join(save_ndjson_path, f"{worker_id}_{group}.ndjson"), "w") as f:
                     ndjson_record = {
                         "batch_name": batch_name, 
                         "worker_id": worker_id, 

@@ -7,6 +7,7 @@ import os
 import glob
 import json
 import argparse
+import re
 
 # Helper functions
 def extract_response(response_row):
@@ -137,19 +138,23 @@ def main():
             education_level = extract_response(education_level_dic)['Q0']
 
             # Iterate through background images, labels and their corresponding narratives for three Groups of incomplete drawings
-            for drawing_group, label_index, narrative_index in zip(["Incomplete_Group_A", "Incomplete_Group_B", "Incomplete_Group_C"], [9, 12, 15], [10, 13, 16]):
+            for bakcground_image_index in [8, 11, 14]:
                 # Extract background image
-                background_image_row = df.loc[df['trial_index'] == label_index - 1, "backgroundImage"]
+                background_image_row = df.loc[df['trial_index'] == bakcground_image_index, "backgroundImage"]
+
                 if not background_image_row.empty:
                     try:
-                        background_image = json.loads(background_image_row.iloc[0])['backgroundImage']
+                        background_image = background_image_row.iloc[0]
                     except (json.JSONDecodeError, KeyError, IndexError):
                         background_image = None
                 else:
                     background_image = None
-                
+
+                # Extract drawing group 
+                drawing_group = re.search(r'Group_\d+', background_image).group(0) if background_image else None
+
                 # Extract label
-                response_row = df.loc[df['trial_index'] == label_index, "response"]
+                response_row = df.loc[df['trial_index'] == bakcground_image_index + 1, "response"]
                 if not response_row.empty:
                     try:
                         label = json.loads(response_row.iloc[0])['Q0'].lower()
@@ -159,7 +164,7 @@ def main():
                     label = None
 
                 # Extract narrative
-                narrative_row = df.loc[df['trial_index'] == narrative_index, "response"]
+                narrative_row = df.loc[df['trial_index'] == bakcground_image_index + 2, "response"]
                 if not narrative_row.empty:
                     try:
                         narrative = json.loads(narrative_row.iloc[0])['narrative_response']
