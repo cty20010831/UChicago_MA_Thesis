@@ -9,5 +9,5 @@ mood_induction_film_clips
 MTurk_Online_Consent_Form_Revised.doc
 .DS_Store
 .Rproj.user
-*.Rproj
-*.rds
+.Rhistory
+.Rdata

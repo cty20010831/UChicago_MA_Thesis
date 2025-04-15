@@ -2,5 +2,4 @@
 # For each directory of AuDrA, CoSE, and DSI, you need to (set up and) activate the environment respectively in order to derive metrics of flexbility and originality.
 numpy
 pandas
-statsmodels
 opencv-python
