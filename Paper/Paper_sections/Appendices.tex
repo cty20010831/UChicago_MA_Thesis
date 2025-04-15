@@ -77,122 +77,123 @@ where:
     \item \(n\) is the number of unique word pairs considered.
 \end{itemize}
 
-% Python code for data preprocessing
-\newpage
-\section{Data Preprocessing for Testing CoSE Model}
-\label{appendix: cose_data_preprocessing}
-To use the CoSE model for stroke prediction, several data preprocessing steps were performed:
+% Comment out python code sections
+% % Python code for data preprocessing
+% \newpage
+% \section{Data Preprocessing for Testing CoSE Model}
+% \label{appendix: cose_data_preprocessing}
+% To use the CoSE model for stroke prediction, several data preprocessing steps were performed:
 
-\textbf{Splitting and Padding Strokes:} This step ensures that all strokes in a drawing have the same length, which is critical for feeding the data into neural networks that require fixed-size inputs. Strokes are padded with zeros where necessary, and a binary flag indicates the end of a stroke. This uniformity is crucial for the model to correctly interpret stroke sequences.
-\begin{lstlisting}[language=Python, caption={Splitting and Padding Strokes}]
-def split_and_pad_strokes(stroke_list):
-    max_len = np.array([len(stroke[0]) for stroke in stroke_list]).max()
-    strokes = []
-    for stroke in stroke_list:
-        padded_stroke = np.zeros([max_len, 4], dtype=np.float32)
-        for i, point in enumerate(stroke):
-            padded_stroke[i, :len(point)] = point
-        strokes.append(padded_stroke)
-    return np.array(strokes)
-\end{lstlisting}
+% \textbf{Splitting and Padding Strokes:} This step ensures that all strokes in a drawing have the same length, which is critical for feeding the data into neural networks that require fixed-size inputs. Strokes are padded with zeros where necessary, and a binary flag indicates the end of a stroke. This uniformity is crucial for the model to correctly interpret stroke sequences.
+% \begin{lstlisting}[language=Python, caption={Splitting and Padding Strokes}]
+% def split_and_pad_strokes(stroke_list):
+%     max_len = np.array([len(stroke[0]) for stroke in stroke_list]).max()
+%     strokes = []
+%     for stroke in stroke_list:
+%         padded_stroke = np.zeros([max_len, 4], dtype=np.float32)
+%         for i, point in enumerate(stroke):
+%             padded_stroke[i, :len(point)] = point
+%         strokes.append(padded_stroke)
+%     return np.array(strokes)
+% \end{lstlisting}
 
-\textbf{Size Normalization:} Drawings are normalized to a consistent scale by adjusting their dimensions relative to a common bounding box. This normalization aids the model in focusing on the shape and sequence of strokes rather than their absolute size or position, which enhances the model's ability to generalize across various drawing styles.
-\begin{lstlisting}[language=Python, caption={Size Normalization}]
-def size_normalization(drawing):
-    min_x, max_x = min([p[0] for stroke in drawing for p in stroke]), max([p[0] for stroke in drawing for p in stroke])
-    min_y, max_y = min([p[1] for stroke in drawing for p in stroke]), max([p[1] for stroke in drawing for p in stroke])
-    scale = max(max_x - min_x, max_y - min_y)
-    normalized_drawing = [[[p[0] / scale, p[1] / scale] for p in stroke] for stroke in drawing]
-    return normalized_drawing
-\end{lstlisting}
+% \textbf{Size Normalization:} Drawings are normalized to a consistent scale by adjusting their dimensions relative to a common bounding box. This normalization aids the model in focusing on the shape and sequence of strokes rather than their absolute size or position, which enhances the model's ability to generalize across various drawing styles.
+% \begin{lstlisting}[language=Python, caption={Size Normalization}]
+% def size_normalization(drawing):
+%     min_x, max_x = min([p[0] for stroke in drawing for p in stroke]), max([p[0] for stroke in drawing for p in stroke])
+%     min_y, max_y = min([p[1] for stroke in drawing for p in stroke]), max([p[1] for stroke in drawing for p in stroke])
+%     scale = max(max_x - min_x, max_y - min_y)
+%     normalized_drawing = [[[p[0] / scale, p[1] / scale] for p in stroke] for stroke in drawing]
+%     return normalized_drawing
+% \end{lstlisting}
 
-\textbf{Resampling:} Strokes are resampled at uniform intervals to ensure that the model receives input with consistent temporal spacing. This step prevents the model from misinterpreting quick or slow strokes as different from one another.
-\begin{lstlisting}[language=Python, caption={Resampling}]
-def resample_stroke(stroke, step=5):
-    resampled = []
-    for i in range(0, len(stroke), step):
-        resampled.append(stroke[i])
-    return resampled
-\end{lstlisting}
+% \textbf{Resampling:} Strokes are resampled at uniform intervals to ensure that the model receives input with consistent temporal spacing. This step prevents the model from misinterpreting quick or slow strokes as different from one another.
+% \begin{lstlisting}[language=Python, caption={Resampling}]
+% def resample_stroke(stroke, step=5):
+%     resampled = []
+%     for i in range(0, len(stroke), step):
+%         resampled.append(stroke[i])
+%     return resampled
+% \end{lstlisting}
 
-\textbf{Statistics Calculation for Normalization:} Statistical measures such as mean and standard deviation are calculated for further normalization of coordinates. This normalization (zero-mean and unit-variance) is crucial for machine learning models to avoid biases associated with the scale of the data and to improve convergence during training.
-\begin{lstlisting}[language=Python, caption={Statistics Calculation}]
-def calculate_statistics(drawings):
-    all_x = [p[0] for drawing in drawings for stroke in drawing for p in stroke]
-    mean_x, std_x = np.mean(all_x), np.std(all_x)
-    return mean_x, std_x
-\end{lstlisting}
+% \textbf{Statistics Calculation for Normalization:} Statistical measures such as mean and standard deviation are calculated for further normalization of coordinates. This normalization (zero-mean and unit-variance) is crucial for machine learning models to avoid biases associated with the scale of the data and to improve convergence during training.
+% \begin{lstlisting}[language=Python, caption={Statistics Calculation}]
+% def calculate_statistics(drawings):
+%     all_x = [p[0] for drawing in drawings for stroke in drawing for p in stroke]
+%     mean_x, std_x = np.mean(all_x), np.std(all_x)
+%     return mean_x, std_x
+% \end{lstlisting}
 
-In sum, the preprocessing of drawing data follows a systematic order, which is vital for preparing the data in a manner that enhances the performance and accuracy of the CoSE model. The preprocessing pipeline starts with the process of splitting and padding strokes, which helps standardizes the length of all strokes as  consistent input to be handled by the CoSE model. Next, all strokes are scaled to fit within a standardized bounding box, focusing the model’s attention on the shape and sequence of strokes rather than their absolute size or position. Resampling are then performed to adjust the temporal spacing between points in each stroke to be uniform, ensuring consistent temporal data across various drawing speeds. Finally, overall mean and standard deviation of x and y coordinates for all drawings in the sample is calculated for further normalization to zero-mean and unit-variance.
+% In sum, the preprocessing of drawing data follows a systematic order, which is vital for preparing the data in a manner that enhances the performance and accuracy of the CoSE model. The preprocessing pipeline starts with the process of splitting and padding strokes, which helps standardizes the length of all strokes as  consistent input to be handled by the CoSE model. Next, all strokes are scaled to fit within a standardized bounding box, focusing the model’s attention on the shape and sequence of strokes rather than their absolute size or position. Resampling are then performed to adjust the temporal spacing between points in each stroke to be uniform, ensuring consistent temporal data across various drawing speeds. Finally, overall mean and standard deviation of x and y coordinates for all drawings in the sample is calculated for further normalization to zero-mean and unit-variance.
 
-% Python code for different model signatures
-\newpage
-\section{Passing Through the Model Signatures for Testing CoSE Model}
-\label{appendix: model signatures}
-The preprocessed drawings are further processed through the core functions of the CoSE model (as shown in Listing~\ref{lst:CoSE Model Signatures} below), implemented as a sequence of method calls. First, the \textit{encode\_stroke} signature transforms each stroke into a fixed-dimensional latent space, capturing essential local features like shape and size while abstracting from global context. Next, the \textit{predict\_position} signature uses the encoded strokes to anticipate the starting position of the next stroke, integrating relational aspects of the drawing layout. Subsequently, the \textit{predict\_embedding} signature computes the latent representation for the forthcoming stroke, ensuring that the new stroke aligns with the drawing's compositional structure. Finally, the \textit{decode\_stroke} signature reconstructs the predicted stroke from its latent code, converting it back into a visible stroke on the canvas. This sequential processing allows the CoSE model to generate complex structures by iteratively predicting and rendering strokes based on both individual characteristics and their inter-relations.
+% % Python code for different model signatures
+% \newpage
+% \section{Passing Through the Model Signatures for Testing CoSE Model}
+% \label{appendix: model signatures}
+% The preprocessed drawings are further processed through the core functions of the CoSE model (as shown in Listing~\ref{lst:CoSE Model Signatures} below), implemented as a sequence of method calls. First, the \textit{encode\_stroke} signature transforms each stroke into a fixed-dimensional latent space, capturing essential local features like shape and size while abstracting from global context. Next, the \textit{predict\_position} signature uses the encoded strokes to anticipate the starting position of the next stroke, integrating relational aspects of the drawing layout. Subsequently, the \textit{predict\_embedding} signature computes the latent representation for the forthcoming stroke, ensuring that the new stroke aligns with the drawing's compositional structure. Finally, the \textit{decode\_stroke} signature reconstructs the predicted stroke from its latent code, converting it back into a visible stroke on the canvas. This sequential processing allows the CoSE model to generate complex structures by iteratively predicting and rendering strokes based on both individual characteristics and their inter-relations.
 
-\begin{lstlisting}[language=Python, caption={CoSE Model Signatures}, label=lst:CoSE Model Signatures]
-# Load pre-trained CoSE model
-model_signature_directory = '../thesis/model_architecture.csv'
-model = tf.saved_model.load("../pretrained_model/saved_model_with_signatures")
+% \begin{lstlisting}[language=Python, caption={CoSE Model Signatures}, label=lst:CoSE Model Signatures]
+% # Load pre-trained CoSE model
+% model_signature_directory = '../thesis/model_architecture.csv'
+% model = tf.saved_model.load("../pretrained_model/saved_model_with_signatures")
 
-# Load signatures of pre-trained models
-encode_stroke = model.signatures["encode_stroke"]
-predict_position = model.signatures["predict_position"]
-predict_embedding = model.signatures["predict_embedding"]
-decode_stroke = model.signatures["decode_stroke"]
-\end{lstlisting}
+% # Load signatures of pre-trained models
+% encode_stroke = model.signatures["encode_stroke"]
+% predict_position = model.signatures["predict_position"]
+% predict_embedding = model.signatures["predict_embedding"]
+% decode_stroke = model.signatures["decode_stroke"]
+% \end{lstlisting}
 
-The preprocessed drawings are further processed through the core functions of the CoSE model, implemented as a sequence of method calls. First, the \textit{encode\_stroke} function transforms each stroke into a fixed-dimensional latent space, capturing essential local features like shape and size while abstracting from global context. Next, \textit{predict\_position} uses the encoded strokes to anticipate the starting position of the next stroke, integrating relational aspects of the drawing layout. Subsequently, \textit{predict\_embedding} computes the latent representation for the forthcoming stroke, ensuring that the new stroke aligns with the drawing's compositional structure. Finally, the \textit{decode\_stroke} function reconstructs the predicted stroke from its latent code, converting it back into a visible stroke on the canvas. This sequential processing allows the CoSE model to generate complex structures by iteratively predicting and rendering strokes based on both individual characteristics and their inter-relations.
+% The preprocessed drawings are further processed through the core functions of the CoSE model, implemented as a sequence of method calls. First, the \textit{encode\_stroke} function transforms each stroke into a fixed-dimensional latent space, capturing essential local features like shape and size while abstracting from global context. Next, \textit{predict\_position} uses the encoded strokes to anticipate the starting position of the next stroke, integrating relational aspects of the drawing layout. Subsequently, \textit{predict\_embedding} computes the latent representation for the forthcoming stroke, ensuring that the new stroke aligns with the drawing's compositional structure. Finally, the \textit{decode\_stroke} function reconstructs the predicted stroke from its latent code, converting it back into a visible stroke on the canvas. This sequential processing allows the CoSE model to generate complex structures by iteratively predicting and rendering strokes based on both individual characteristics and their inter-relations.
 
-% Python code to calculate two measures of flexibility
-\newpage
-\section{Python Code to Calculate Entropy of the Gaussian Mixture Model}
-\label{appendix: calculate_entropy_python}
-\begin{lstlisting}[language=Python, caption={Code for Entropy Calculation}]
-def entropy_gmm(predict_result):
-    pi = predict_result['pi'].numpy().flatten()
-    mus = predict_result['mu'].numpy().squeeze()
-    sigmas = [np.diag(sigma) for sigma in predict_result['sigma'].numpy().squeeze()]
+% % Python code to calculate two measures of flexibility
+% \newpage
+% \section{Python Code to Calculate Entropy of the Gaussian Mixture Model}
+% \label{appendix: calculate_entropy_python}
+% \begin{lstlisting}[language=Python, caption={Code for Entropy Calculation}]
+% def entropy_gmm(predict_result):
+%     pi = predict_result['pi'].numpy().flatten()
+%     mus = predict_result['mu'].numpy().squeeze()
+%     sigmas = [np.diag(sigma) for sigma in predict_result['sigma'].numpy().squeeze()]
 
-    N = len(pi)
-    kl_matrix = np.zeros((N, N))
+%     N = len(pi)
+%     kl_matrix = np.zeros((N, N))
 
-    for i in range(N):
-        for j in range(N):
-            diff_mu = mus[j] - mus[i]
-            inv_sigma_j = inv(sigmas[j])
-            kl_matrix[i, j] = 0.5 * (np.trace(inv_sigma_j @ sigmas[i]) + diff_mu.T @ inv_sigma_j @ diff_mu - mus.shape[1] + np.log(det(sigmas[j]) / det(sigmas[i])))
+%     for i in range(N):
+%         for j in range(N):
+%             diff_mu = mus[j] - mus[i]
+%             inv_sigma_j = inv(sigmas[j])
+%             kl_matrix[i, j] = 0.5 * (np.trace(inv_sigma_j @ sigmas[i]) + diff_mu.T @ inv_sigma_j @ diff_mu - mus.shape[1] + np.log(det(sigmas[j]) / det(sigmas[i])))
 
-    log_terms = -0.5 * kl_matrix  # -1/2 factor from the exponent in the entropy formula
-    log_sum_exp = logsumexp(log_terms, b=pi, axis=1)
-    entropy = -np.sum(pi * log_sum_exp)
-    return entropy
-\end{lstlisting}
+%     log_terms = -0.5 * kl_matrix  # -1/2 factor from the exponent in the entropy formula
+%     log_sum_exp = logsumexp(log_terms, b=pi, axis=1)
+%     entropy = -np.sum(pi * log_sum_exp)
+%     return entropy
+% \end{lstlisting}
 
-\newpage
-\section{Python Code to Calculate Bhattacharyya Distance}
-\label{appendix: calculate_bhattacharyya_python}
-\begin{lstlisting}[language=Python, caption={Code for Calculating the Bhattacharyya Distance}]
-def bhattacharyya_distance(predict_result):
-    pi = predict_result['pi'].numpy().flatten()
-    mus = predict_result['mu'].numpy().squeeze()
-    sigmas = [np.diag(sigma) for sigma in predict_result['sigma'].numpy().squeeze()]
+% \newpage
+% \section{Python Code to Calculate Bhattacharyya Distance}
+% \label{appendix: calculate_bhattacharyya_python}
+% \begin{lstlisting}[language=Python, caption={Code for Calculating the Bhattacharyya Distance}]
+% def bhattacharyya_distance(predict_result):
+%     pi = predict_result['pi'].numpy().flatten()
+%     mus = predict_result['mu'].numpy().squeeze()
+%     sigmas = [np.diag(sigma) for sigma in predict_result['sigma'].numpy().squeeze()]
 
-    N = len(pi)
-    bc_values = []
+%     N = len(pi)
+%     bc_values = []
 
-    for i in range(N):
-        for j in range(i+1, N):
-            sigma_i = sigmas[i]
-            sigma_j = sigmas[j]
-            sigma_avg = 0.5 * (sigma_i + sigma_j)
-            delta_mu = mus[j] - mus[i]
-            term = 0.25 * delta_mu.T @ inv(sigma_avg) @ delta_mu
-            bc = np.sqrt(det(sigma_i)**0.25 * det(sigma_j)**0.25 / det(sigma_avg)**0.5) * np.exp(-term)
-            bc_values.append(-np.log(bc))  # Convert BC to a distance
+%     for i in range(N):
+%         for j in range(i+1, N):
+%             sigma_i = sigmas[i]
+%             sigma_j = sigmas[j]
+%             sigma_avg = 0.5 * (sigma_i + sigma_j)
+%             delta_mu = mus[j] - mus[i]
+%             term = 0.25 * delta_mu.T @ inv(sigma_avg) @ delta_mu
+%             bc = np.sqrt(det(sigma_i)**0.25 * det(sigma_j)**0.25 / det(sigma_avg)**0.5) * np.exp(-term)
+%             bc_values.append(-np.log(bc))  # Convert BC to a distance
 
-    return np.mean(bc_values)
-\end{lstlisting}
+%     return np.mean(bc_values)
+% \end{lstlisting}
 \end{appendix}
 \end{document}
