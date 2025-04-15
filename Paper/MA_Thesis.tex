@@ -16,6 +16,8 @@
 \usepackage{xcolor}  % Optional, for customizing colors
 \usepackage{longtable} 
 \usepackage{mathptmx} % Use Times New Roman font
+\usepackage{threeparttable}  % for table notes
+\usepackage{booktabs}        % for \toprule, \midrule, \bottomrule
 \usepackage[toc,page]{appendix} % Display appendices
 
 % Configuration for the listings package
@@ -43,8 +45,8 @@
   \addcontentsline{toc}{section}{#1}}
 
 \title{The Art of Positivity in Drawing: Unveiling the Impact of Positive Mood States on Visual Creativity via Deep Learning}
-\author{Sam Cong}
-\date{Jan 21, 2025}
+% \author{Sam Cong}
+% \date{Jan 21, 2025}
 
 \begin{document}
 
@@ -55,7 +57,7 @@
     \vspace{1.5in}
     {\Large Sam Cong \par}
     \vspace{0.5in}
-    {\large Nov 11, 2024 \par}
+    {\large Apr 1, 2025 \par}
     \vfill
 \end{titlepage}
 \newpage
@@ -68,17 +70,27 @@
 \centeredsection{Abstract}
 \subfile{Paper_sections/Abstract}
 
+\newpage
 \centeredsection{Introduction}
 \subfile{Paper_sections/Introduction}
 
 \centeredsection{Literature Review}
 \subfile{Paper_sections/LitReview}
 
+\centeredsection{Present Study}
+\subfile{Paper_sections/Present_Study}
+
 \centeredsection{Methods}
 \subfile{Paper_sections/Methods}
 
 \centeredsection{Results}
 \subfile{Paper_sections/Results}
+
+\centeredsection{Discussion}
+\subfile{Paper_sections/Discussion}
+
+\centeredsection{Conclusion}
+\subfile{Paper_sections/Conclusion}
 
 % Print bibliography
 \newpage
