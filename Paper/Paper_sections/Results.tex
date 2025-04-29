@@ -24,7 +24,7 @@ For arousal ratings, a one-way ANOVA revealed a significant effect of induced mo
   \label{fig:arousal_group}
 \end{figure}
 
-For valence ratings, a one-way ANOVA also showed a significant group difference, $F(2, 87) = 4.44$, $p = .0146$, with a moderate effect size ($\eta^2 = .09$). Moreover, post-hoc Tukey tests revealed that the \textit{High-Arousal Positive Mood} group ($M = 2.91$, $SD = 0.96$) reported significantly higher valence than the \textit{Neutral Control} group ($M = 1.24$, $SD = 1.24$; $p = .0167$), whereas the \textit{Low-Arousal Positive Mood} group ($M = 2.16$, $SD = 1.10$) did not significantly differ from either group ($ps > .05$; see Figure~\ref{fig:valence_group}). 
+Valence was significantly different between groups, $F(2, 87) = 4.44$, $p = .0146$, revealing a moderate effect size ($\eta^2 = .09$). Post-hoc Tukey tests revealed that the \textit{High-Arousal Positive Mood} group ($M = 2.91$, $SD = 0.96$) reported significantly higher valence than the \textit{Neutral Control} group ($M = 1.24$, $SD = 1.24$; $p = .0167$), whereas the \textit{Low-Arousal Positive Mood} group ($M = 2.16$, $SD = 1.10$) did not significantly differ from either group ($ps > .05$; see Figure~\ref{fig:valence_group}). 
 
 \begin{figure}[H]
   \centering
@@ -38,6 +38,8 @@ Overall, the experimental mood induction procedure using three validated film cl
 \subsection*{Descriptive Statistics of Flexibility and Originality Measures}
 
 The descriptive statistics for all the measures of flexibility and originality across mood conditions are presented in Table~\ref{tab:descriptive_stats}. Overall, the flexibility metrics demonstrated subtle group differences. Average entropy and Bhattacharyya distance were highest in \textit{High-Arousal Positive} group and lowest in \textit{Low-Arousal Positive} group, though these differences were small. Inflection proportions of entropy and Bhattacharyya distance were slightly elevated in \textit{Low-Arousal Positive} group, suggesting greater within-trial shifts in drawing strategy. DSI scores were highest in \textit{High- Arousal Positive} group, indicating more semantically diverse narrative content, with \textit{Neutral Control} and \textit{Low-Arousal Positive} groups showing similar levels. Originality, as measured by the AuDrA model, remained stable under all conditions, with means ranging narrowly from 0.36 to 0.37 and no apparent variation across groups. 
+
+To further statistically assess group differences across the three induced mood conditions, a series of one-way ANOVAs were performed for each flexibility measure and originality. As shown in Table~\ref{tab:anova_results}, none of the ANOVAs reached significance and all effect sizes were small ($\eta^2 < .03$). This suggests that mood induction did not lead to significant differences in cognitive flexibility or originality. In other words, mood induction, despite being shown to alter the arousal and valence ratings, did not affect the originality aspect of creativity or any of the process measures, as mentioned in previous studies. 
 
 \begin{table}[H]
 \centering
@@ -63,9 +65,33 @@ AuDrA & 0.37 (0.10) & 0.36 (0.10) & 0.37 (0.11) \\
 \end{threeparttable}
 \end{table}
 
+\begin{table}[H]
+\centering
+\begin{threeparttable}
+\caption{One-way ANOVA Results for Group Comparisons}
+\label{tab:anova_results}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Measure} & \textbf{$F(2, 87)$} & \textbf{$p$} & \textbf{$\eta^2$} \\
+\midrule
+Avg. Entropy & 1.30 & .2784 & .029 \\
+Avg. Bhatt. Dist. & 0.44 & .6456 & .010 \\
+Inflect. Prop. Entropy & 0.41 & .6620 & .009 \\
+Inflect. Prop. Bhatt & 0.12 & .8850 & .003 \\
+DSI & 0.63 & .5375 & .014 \\
+AuDrA & 0.18 & .8357 & .004 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\small
+\item \textit{Note.} Avg. Entropy = Average Entropy; Avg. Bhatt. Dist. = Average Bhattacharyya Distance; Inflect. Prop. Entropy = Inflection Proportion of Entropy; Inflect. Prop. Bhatt = Inflection Proportion of Bhattacharyya Distance; DSI = Divergent Semantic Integration; AuDrA = Automated Drawing Assessment (Originality Score).
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
 \subsection*{Correlational and Predictive Analyses of Flexibility Measures}
 
-Correlation analyses revealed a notable divergence between two modes of cognitive flexibility. As shown in Figure~\ref{fig:cor_heatmap}, average entropy and average Bhattacharyya distance were strongly positively correlated with each other ($r = .83$), but both showed insignificantly weak correlations with their respective inflection metrics and with DSI ($r$s between –.12 and –.18). These trends suggest that participants who sustained a broad space of exploratory stroke options throughout the drawing process tended to make fewer within-trial shifts in drawing strategy and produced less semantically divergent narratives.
+When it comes to the relationship between the process measures of creativity and the originality aspect of creativity, correlation analyses revealed a notable divergence between two modes of cognitive flexibility. As shown in Figure~\ref{fig:cor_heatmap}, average entropy and average Bhattacharyya distance were strongly positively correlated with each other ($r = .83$), but both showed insignificantly weak correlations with their respective inflection metrics and with DSI ($r$s between –.12 and –.18). These trends suggest that participants who sustained a broad space of exploratory stroke options throughout the drawing process tended to make fewer within-trial shifts in drawing strategy and produced less semantically divergent narratives.
 
 \begin{figure}[H]
   \centering
@@ -80,56 +106,7 @@ In contrast, the two inflection-based measures were strongly positively correlat
 
 Taken together, these results suggest that real-time flexibility may manifest through two distinct behavioral strategies: one characterized by persistent exploratory breadth (high average entropy and Bhattacharyya distance) and another characterized by dynamic switching between ideas (high inflection proportions and DSI). Importantly, only the latter appears to be meaningfully connected to originality in this task context.
 
-\subsection*{Mediation Analysis}
+\subsubsection*{Multilevel Regression Analysis: Direct Prediction of Originality}
+Given that mood induction did not significantly influence originality or any flexibility process measures (as established through the series of one-way ANOVAs above), one of the necessary conditions for the mediation analysis (i.e., the significance of both the indirect and direct effects) was not met. Hence, we chose not to perform the planned mediation analysis (see the full mediation model output in Appendix~\ref{appendix: mediation_analysis_results} that confirms the insignificance of indirect and direct effects of positive, activating mood states on originality). Despite the failure of replication of the hypothesized flexibility pathway linking positive, activating mood states to originality in previous studies, 
 
-To evaluate whether mood condition influenced creative originality through different aspects of cognitive flexibility, we conducted a series of mediation models, testing each flexibility measure individually as a mediator. Mood conditions were dummy-coded using the Neutral Control group as the reference category. The outcome variable in all models was originality, measured via AuDrA (see Table~\ref{tab:mediation_summary} for detailed mediation results).
-
-\paragraph{Average Entropy.}
-Mood condition had no significant effect on average entropy (D1: $\beta = -0.010$, $p = .646$; D2: $\beta = -0.046$, $p = .039$), and average entropy did not significantly predict originality ($\beta = -0.255$, $p = .010$). While the path b effect was statistically significant, the indirect effects were not: indirect$_{D1}$ = 0.003 ($p = .672$), indirect$_{D2}$ = 0.012 ($p = .106$). Direct effects of mood on originality were non-significant, and total effects were close to zero.
-
-\paragraph{Average Bhattacharyya Distance.}
-Neither mood condition (D1: $\beta = -0.042$, $p = .552$; D2: $\beta = -0.107$, $p = .113$) nor average Bhattacharyya distance ($\beta = -0.037$, $p = .239$) significantly predicted originality. Indirect effects were also non-significant (indirect$_{D1}$ = 0.002, $p = .658$; indirect$_{D2}$ = 0.004, $p = .359$), and direct effects remained negligible.
-
-\paragraph{Inflection Proportion of Entropy.}
-Mood condition had no significant effect on inflection proportion (D1: $\beta = 0.018$, $p = .649$; D2: $\beta = 0.042$, $p = .268$), but inflection proportion strongly predicted originality ($\beta = 0.447$, $p < .001$). Indirect effects were not significant (indirect$_{D1}$ = 0.008, $p = .652$; indirect$_{D2}$ = 0.019, $p = .266$), but the strength of the b-path suggests this mediator may still play a functional role. Direct effects remained non-significant.
-
-\paragraph{Inflection Proportion of Bhattacharyya Distance.}
-Patterns were similar: no significant effect of mood condition on the mediator (D1: $\beta = 0.024$, $p = .540$; D2: $\beta = 0.027$, $p = .510$), but a strong effect of inflection proportion on originality ($\beta = 0.446$, $p < .001$). Indirect effects again were non-significant (indirect$_{D1}$ = 0.011, $p = .542$; indirect$_{D2}$ = 0.012, $p = .511$).
-
-\paragraph{Divergent Semantic Integration (DSI).}
-DSI was weakly predicted by mood condition (D1: $\beta = 0.078$, $p = .163$; D2: $\beta = 0.008$, $p = .897$), but it significantly predicted originality ($\beta = 0.219$, $p < .001$). Although the indirect effects were not statistically significant (indirect$_{D1}$ = 0.017, $p = .177$; indirect$_{D2}$ = 0.002, $p = .898$), the direct effects of mood on originality were also non-significant, suggesting a partial mediation.
-
-Overall, while mood induction did not significantly influence most flexibility measures, originality was reliably predicted by DSI and inflection-based flexibility. These findings support the notion that originality may depend more on dynamic, adaptive shifts and conceptual integration rather than on sustained exploratory breadth alone.
-
-\begin{table}[H]
-{\fontsize{9pt}{11pt}\selectfont
-\centering
-\caption{Mediation Model Summary: Flexibility Measures as Mediators of Mood on Originality}
-\label{tab:mediation_summary}
-\begin{tabular}{lcccc}
-\toprule
-\textbf{Mediator} & \textbf{Path a} ($\beta$) & \textbf{Path b} ($\beta$) & \textbf{Indirect Effect} & \textbf{Direct Effect} \\
-\midrule
-Avg. Entropy & D1: –0.010 ($p = .646$) & –0.255*** ($p = .010$) & D1: 0.003 [–.010, .015] ($p = .672$) & D1: –0.006 ($p = .759$) \\
-             & D2: –0.046* ($p = .039$) &                         & D2: 0.012 [–.000, .028] ($p = .106$) & D2: –0.005 ($p = .821$) \\
-\addlinespace
-Avg. Bhatt. Dist. & D1: –0.042 ($p = .552$) & –0.037 ($p = .239$) & D1: 0.002 [–.005, .009] ($p = .658$) & D1: –0.005 ($p = .803$) \\
-                  & D2: –0.107 ($p = .113$) &                     & D2: 0.004 [–.003, .015] ($p = .359$) & D2:  0.003 ($p = .899$) \\
-\addlinespace
-Inflect. Prop. Entropy & D1:  0.018 ($p = .649$) &  0.447*** ($p < .001$) & D1: 0.008 [–.027, .043] ($p = .652$) & D1: –0.011 ($p = .326$) \\
-                       & D2:  0.042 ($p = .268$) &                         & D2: 0.019 [–.015, .052] ($p = .266$) & D2: –0.012 ($p = .285$) \\
-\addlinespace
-Inflect. Prop. Bhatt & D1:  0.024 ($p = .540$) &  0.446*** ($p < .001$) & D1: 0.011 [–.024, .046] ($p = .542$) & D1: –0.014 ($p = .162$) \\
-                     & D2:  0.027 ($p = .510$) &                        & D2: 0.012 [–.025, .047] ($p = .511$) & D2: –0.005 ($p = .609$) \\
-\addlinespace
-DSI & D1: 0.078 ($p = .163$) & 0.219*** ($p < .001$) & D1: 0.017 [–.006, .045] ($p = .177$) & D1: –0.021 ($p = .213$) \\
-    & D2: 0.008 ($p = .897$) &                        & D2: 0.002 [–.023, .028] ($p = .898$) & D2:  0.005 ($p = .749$) \\
-\bottomrule
-\end{tabular}
-\begin{tablenotes}[flushleft]
-\small
-\item \textit{Note.} * $p < .05$, ** $p < .01$, *** $p < .001$. Path a = Mood group $\rightarrow$ Flexibility; Path b = Flexibility $\rightarrow$ Originality (AuDrA); Indirect effect = $\text{a} \times \text{b}$; D1 = High Arousal vs. Neutral; D2 = Low Arousal vs. Neutral. Confidence intervals based on 5,000 bootstrapped samples.
-\end{tablenotes}
-}
-\end{table}
 \end{document}
