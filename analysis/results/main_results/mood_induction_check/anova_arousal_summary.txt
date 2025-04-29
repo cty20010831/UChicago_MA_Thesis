@@ -15,13 +15,13 @@ group     | 0.14 | [0.04, 1.00]
 
 - One-sided CIs: upper bound fixed at [1.00].
 Post-hoc Tukey Test:
- contrast                                                                     estimate
- Neutral Group - Positive Valence & High Arousal Group                          -1.833
- Neutral Group - Positive Valence & Low Arousal Group                           -0.367
- Positive Valence & High Arousal Group - Positive Valence & Low Arousal Group    1.467
-    SE df t.ratio p.value
- 0.524 87  -3.500  0.0021
- 0.524 87  -0.700  0.7641
- 0.524 87   2.800  0.0171
+ contrast                                                                     estimate    SE
+ Neutral Group - Positive Valence & High Arousal Group                          -1.833 0.524
+ Neutral Group - Positive Valence & Low Arousal Group                           -0.367 0.524
+ Positive Valence & High Arousal Group - Positive Valence & Low Arousal Group    1.467 0.524
+ df t.ratio p.value
+ 87  -3.500  0.0021
+ 87  -0.700  0.7641
+ 87   2.800  0.0171
 
 P value adjustment: tukey method for comparing a family of 3 estimates 

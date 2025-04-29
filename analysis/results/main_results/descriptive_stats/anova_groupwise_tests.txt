@@ -1,0 +1,9 @@
+===== One-way ANOVA Results by Group =====
+
+                 measure F_value    df p_value  eta2
+             avg_entropy    1.30 2, 87  0.2784 0.029
+          avg_bhatt_dist    0.44 2, 87  0.6456 0.010
+ inflection_prop_entropy    0.41 2, 87  0.6620 0.009
+   inflection_prop_bhatt    0.12 2, 87  0.8850 0.003
+                     DSI    0.63 2, 87  0.5375 0.014
+                   AuDrA    0.18 2, 87  0.8357 0.004

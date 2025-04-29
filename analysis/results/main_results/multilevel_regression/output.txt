@@ -1,0 +1,47 @@
+===== Multilevel Regression: Predicting Originality (AuDrA) =====
+
+Linear mixed model fit by maximum likelihood  ['lmerMod']
+Formula: AuDrA ~ avg_entropy + avg_bhatt_dist + inflection_prop_entropy +  
+    inflection_prop_bhatt + DSI + positive_affectivity + negative_affectivity +  
+    openness_to_experiences + cognitive_flexibility + self_rated_artistic_skill +      (1 | participant_id)
+   Data: merged_data
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+   -714.1    -667.4     370.1    -740.1       257 
+
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-2.88869 -0.55468 -0.00541  0.60786  2.54649 
+
+Random effects:
+ Groups         Name        Variance  Std.Dev.
+ participant_id (Intercept) 0.0002775 0.01666 
+ Residual                   0.0035177 0.05931 
+Number of obs: 270, groups:  participant_id, 90
+
+Fixed effects:
+                            Estimate Std. Error t value
+(Intercept)                0.2969661  0.0671319   4.424
+avg_entropy               -0.0746426  0.0459483  -1.624
+avg_bhatt_dist             0.0042618  0.0146922   0.290
+inflection_prop_entropy    0.1800468  0.0357116   5.042
+inflection_prop_bhatt      0.1620049  0.0363927   4.452
+DSI                        0.0566612  0.0193320   2.931
+positive_affectivity      -0.0033684  0.0007871  -4.279
+negative_affectivity       0.0009747  0.0005605   1.739
+openness_to_experiences    0.0027073  0.0017785   1.522
+cognitive_flexibility      0.0013010  0.0007973   1.632
+self_rated_artistic_skill -0.0028949  0.0046176  -0.627
+
+Correlation of Fixed Effects:
+              (Intr) avg_nt avg_b_ inflctn_prp_n inflctn_prp_b DSI    pstv_f ngtv_f opnn__ cgntv_
+avg_entropy   -0.782                                                                             
+avg_bhtt_ds    0.469 -0.828                                                                      
+inflctn_prp_n -0.014 -0.055  0.068                                                               
+inflctn_prp_b -0.082  0.141 -0.155 -0.818                                                        
+DSI           -0.211  0.072 -0.008 -0.069        -0.140                                          
+pstv_ffctvt    0.146 -0.094  0.027  0.038        -0.006         0.180                            
+ngtv_ffctvt   -0.302  0.081 -0.115  0.001        -0.027         0.351  0.156                     
+opnnss_t_xp   -0.063  0.023 -0.044 -0.024         0.051         0.110 -0.062 -0.060              
+cgntv_flxbl   -0.374 -0.005  0.036  0.014        -0.066        -0.199 -0.519  0.172 -0.328       
+slf_rtd_rt_   -0.262  0.064  0.029  0.032         0.028        -0.049 -0.747 -0.165 -0.089  0.533

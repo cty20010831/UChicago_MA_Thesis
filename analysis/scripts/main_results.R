@@ -220,7 +220,8 @@ dev.off()
 
 # -------------------------------------------------------------------------
 # 3. Descriptive Statistics
-# Density or boxplots of each variable by condition (which you already prepared!).
+# -------------------------------------------------------------------------
+# 3a. Get descriptive statistics by condition
 # Output directory
 descriptive_stats_dir <- file.path(main_results_dir, "descriptive_stats/")
 dir.create(descriptive_stats_dir, recursive = TRUE, showWarnings = FALSE)
@@ -249,6 +250,44 @@ desc_stats_wide <- desc_stats_long %>%
 sink(file.path(descriptive_stats_dir, "groupwise_descriptive_stats.txt"))
 cat("===== Descriptive Statistics by Group (M (SD)) =====\n\n")
 print(as.data.frame(desc_stats_wide), row.names = FALSE)
+sink()
+
+# -------------------------------------------------------------------------
+# 3b. Run one-way ANOVAs for each variable by mood group
+if (!requireNamespace("effectsize", quietly = TRUE)) install.packages("effectsize")
+library(effectsize)
+
+anova_results <- lapply(vars_to_plot, function(var) {
+  formula <- as.formula(paste(var, "~ group"))
+  aov_model <- aov(formula, data = agg_data)
+  summary_out <- summary(aov_model)
+  
+  # Extract F value, p value, degrees of freedom
+  f_val <- summary_out[[1]]$`F value`[1]
+  p_val <- summary_out[[1]]$`Pr(>F)`[1]
+  df1 <- summary_out[[1]]$Df[1]   # Between groups df
+  df2 <- summary_out[[1]]$Df[2]   # Within groups df
+  
+  # Compute eta-squared
+  eta2_out <- effectsize::eta_squared(aov_model, partial = FALSE)
+  eta2_val <- eta2_out$Eta2[1]   # take the first row's Eta2
+  
+  data.frame(
+    measure = var,
+    F_value = round(f_val, 2),
+    df = paste0(df1, ", ", df2),
+    p_value = round(p_val, 4),
+    eta2 = round(eta2_val, 3)
+  )
+})
+
+# Combine into a data frame
+anova_results_df <- do.call(rbind, anova_results)
+
+# Save to text file
+sink(file.path(descriptive_stats_dir, "anova_groupwise_tests.txt"))
+cat("===== One-way ANOVA Results by Group =====\n\n")
+print(anova_results_df, row.names = FALSE)
 sink()
 
 # -------------------------------------------------------------------------
@@ -369,10 +408,125 @@ single_level_mediation(data=agg_data, treatment_vars=c("D1", "D2"),
                        mediator_cols=mediators, control_cols=control_cols)
 
 # -------------------------------------------------------------------------
-# 6. Exploratory Results (probably put in supplementary results)
+# 6. Multilevel Regression
+# After knowing that both the direct and indirect effects of the previous 
+# mediation model is not significant, we add a multilevel regression model where 
+# all five mediators predict originality (AuDrA) and the repeated measures come 
+# from the three drawings per participant.
+if (!requireNamespace("lme4", quietly = TRUE)) install.packages("lme4")
+if (!requireNamespace("sjPlot", quietly = TRUE)) install.packages("sjPlot")
+library(lme4)
+library(sjPlot) 
+
+# Ensure id is a factor (for random effect)
+merged_data$participant_id <- paste0(merged_data$batch_name, "_", merged_data$worker_id)
+merged_data$participant_id <- as.factor(merged_data$participant_id)
+
+# Fit multilevel regression model with random intercept per participant
+mlm_model <- lmer(
+  AuDrA ~ avg_entropy + avg_bhatt_dist + inflection_prop_entropy + inflection_prop_bhatt + DSI + 
+    positive_affectivity + negative_affectivity + openness_to_experiences + 
+    cognitive_flexibility + self_rated_artistic_skill + 
+    (1 | participant_id),
+  data = merged_data,
+  REML = FALSE
+)
+
+# Summarize and Save Results
+multilevel_regression_dir <- file.path(main_results_dir, "multilevel_regression/")
+dir.create(multilevel_regression_dir , recursive = TRUE, showWarnings = FALSE)
+
+# Save txt file
+summary_path <- file.path(multilevel_regression_dir, "output.txt")
+sink(summary_path)
+cat("===== Multilevel Regression: Predicting Originality (AuDrA) =====\n\n")
+print(summary(mlm_model))
+sink()
+
+# Save formatted table
+tab_model(mlm_model, file = file.path(multilevel_regression_dir, "output.html"))
+
+# Visualization
+if (!requireNamespace("effects", quietly = TRUE)) install.packages("effects")
+if (!requireNamespace("patchwork", quietly = TRUE)) install.packages("patchwork")
+library(effects)
+library(patchwork)
+
+# Create predicted column
+merged_data$predicted <- predict(mlm_model)
+
+# Set base font size and line color
+base_theme <- theme_minimal(base_size = 14) +
+  theme(
+    panel.grid = element_blank(),           # remove gridlines
+    panel.background = element_blank(),     # remove panel background
+    plot.background = element_blank(),      # remove overall plot background
+    axis.text = element_text(color = "black"),  # darker axis text
+    axis.title = element_text(color = "black"),
+    plot.title = element_text(
+      hjust = 0.5,                          # center title
+      face = "bold",
+      size = 15
+    ),
+    legend.position = "none"               # remove legend unless needed
+  )
+
+highlight_color <- "#2c7bb6"  # muted blue
+
+# Panel 1: Predicted vs Observed
+predicted_vs_observed_plot <- ggplot(merged_data, aes(x = predicted, y = AuDrA)) +
+  geom_point(alpha = 0.6, color = "gray40", size = 2) +
+  geom_abline(intercept = 0, slope = 1, color = highlight_color, linetype = "dashed", size = 1) +
+  labs(title = "Predicted vs. Observed Originality Scores",
+       x = "Predicted AuDrA", y = "Observed AuDrA") +
+  base_theme
+ggsave(file.path(multilevel_regression_dir, "predicted_vs_observed_plot.png"), 
+       predicted_vs_observed_plot)
+
+# Panel 2: Fixed Effects
+fixed_effects_plot <- plot_model(
+  mlm_model,
+  type = "est",
+  show.values = TRUE,
+  value.offset = 0.3,
+  title = "Fixed Effects Predicting Originality",
+  colors = highlight_color,
+  dot.size = 2,
+  line.size = 0.8,
+  vline.color = "gray70",
+  axis.labels = NULL
+) + 
+  base_theme
+
+ggsave(file.path(multilevel_regression_dir, "fixed_effects_plott.png"), 
+       fixed_effects_plot)
+
+# Panel 3: Marginal Effects for Significant Predictors
+significant_predictors <- c("inflection_prop_entropy", "inflection_prop_bhatt", "DSI")
+
+effect_plot <- function(var) {
+  eff <- Effect(var, mlm_model)
+  df <- as.data.frame(eff)
+  ggplot(df, aes_string(x = var, y = "fit")) +
+    geom_line(color = highlight_color, size = 1.2) +
+    geom_ribbon(aes(ymin = lower, ymax = upper), fill = highlight_color, alpha = 0.2) +
+    labs(title = paste("Effect of", var, "on Originality"),
+         x = var, y = "Predicted AuDrA") +
+    base_theme
+}
+
+effect_plots <- lapply(significant_predictors, effect_plot)
+
+# Combine all marginal effect plots into one column
+combined_effects_plot <- wrap_plots(effect_plots, ncol = 1)
+ggsave(file.path(multilevel_regression_dir, "marginal_effects_plot.png"),
+       plot = combined_effects_plot, width = 7, height = 10, dpi = 300)
 
 # -------------------------------------------------------------------------
-# 6.1. Arousal/valence as continuous IVs
+# 7. Exploratory Results (probably put in supplementary results)
+
+# -------------------------------------------------------------------------
+# 7.1. Arousal/valence as continuous IVs
 # -------------------------------------------------------------------------
 # Perform mediation analysis (arousal as IV)
 single_level_mediation(data=agg_data, 
@@ -381,7 +535,7 @@ single_level_mediation(data=agg_data,
                        control_cols=control_cols)
 
 # -------------------------------------------------------------------------
-# 6.2. Moderated mediation 
+# 7.2. Moderated mediation 
 # -------------------------------------------------------------------------
 
 # -------------------------------------------------------------------------
@@ -404,15 +558,15 @@ fits <- moderated_mediation(data=agg_data, treatment="arousal",
                             control_vars=control_cols)
 
 # -------------------------------------------------------------------------
-# 6.3. Focus only on the first drawing for each participant
+# 7.3. Focus only on the first drawing for each participant
 # -------------------------------------------------------------------------
 
 # -------------------------------------------------------------------------
-# 6.4. Remove the lower bound of DSI (copying labels for the narrative section) 
+# 7.4. Remove the lower bound of DSI (copying labels for the narrative section) 
 # -------------------------------------------------------------------------
 
 # -------------------------------------------------------------------------
-# 6.5. Potential quadratic effects 
+# 7.5. Potential quadratic effects 
 # -------------------------------------------------------------------------
 # Perform mediation analysis (arousal as IV & quadratic effect)
 single_level_mediation(data=agg_data, 
@@ -422,7 +576,7 @@ single_level_mediation(data=agg_data,
                        quadratic = TRUE)
 
 # -------------------------------------------------------------------------
-# 6.6 Unique vs. Overlapping Variance (Variance Decomposition)
+# 7.6 Unique vs. Overlapping Variance (Variance Decomposition)
 # -------------------------------------------------------------------------
 
 # Fit regression model
