@@ -5,6 +5,7 @@
 \usepackage{float}
 \usepackage{threeparttable}  % for table notes
 \usepackage{booktabs}        % for \toprule, \midrule, \bottomrule
+\usepackage{float}
 
 \begin{document}
 \subsection*{Participant Demographics}
@@ -20,7 +21,7 @@ For arousal ratings, a one-way ANOVA revealed a significant effect of induced mo
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{../analysis/results/main_results/mood_induction_check/arousal_by_group.png}
-  \caption{Boxplot of Arousal Ratings by Mood Group}
+  \caption{Boxplot of Arousal Ratings by Mood Group. Boxes represent the interquartile range (IQR), with horizontal lines indicating the median. Jittered points show individual participant ratings. Horizontal bars above the boxes denote pairwise group comparisons, with associated significance levels based on $t$-tests.}
   \label{fig:arousal_group}
 \end{figure}
 
@@ -29,7 +30,9 @@ Valence was significantly different between groups, $F(2, 87) = 4.44$, $p = .014
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{../analysis/results/main_results/mood_induction_check/valence_by_group.png}
-  \caption{Boxplot of Valence Ratings by Mood Group}
+  \caption{
+    Boxplot of valence ratings by mood group. Boxes represent the interquartile range (IQR), with horizontal lines indicating the median. Jittered points show individual participant ratings. Horizontal bars above the boxes denote pairwise group comparisons, with associated significance levels based on $t$-tests.
+  }
   \label{fig:valence_group}
 \end{figure}
 
@@ -89,7 +92,7 @@ AuDrA & 0.18 & .8357 & .004 \\
 \end{threeparttable}
 \end{table}
 
-\subsection*{Correlational and Predictive Analyses of Flexibility Measures}
+\subsection*{Correlational Analyses of Flexibility and Originality Measures}
 
 When it comes to the relationship between the process measures of creativity and the originality aspect of creativity, correlation analyses revealed a notable divergence between two modes of cognitive flexibility. As shown in Figure~\ref{fig:cor_heatmap}, average entropy and average Bhattacharyya distance were strongly positively correlated with each other ($r = .83$), but both showed insignificantly weak correlations with their respective inflection metrics and with DSI ($r$s between –.12 and –.18). These trends suggest that participants who sustained a broad space of exploratory stroke options throughout the drawing process tended to make fewer within-trial shifts in drawing strategy and produced less semantically divergent narratives.
 
@@ -106,7 +109,73 @@ In contrast, the two inflection-based measures were strongly positively correlat
 
 Taken together, these results suggest that real-time flexibility may manifest through two distinct behavioral strategies: one characterized by persistent exploratory breadth (high average entropy and Bhattacharyya distance) and another characterized by dynamic switching between ideas (high inflection proportions and DSI). Importantly, only the latter appears to be meaningfully connected to originality in this task context.
 
-\subsubsection*{Multilevel Regression Analysis: Direct Prediction of Originality}
-Given that mood induction did not significantly influence originality or any flexibility process measures (as established through the series of one-way ANOVAs above), one of the necessary conditions for the mediation analysis (i.e., the significance of both the indirect and direct effects) was not met. Hence, we chose not to perform the planned mediation analysis (see the full mediation model output in Appendix~\ref{appendix: mediation_analysis_results} that confirms the insignificance of indirect and direct effects of positive, activating mood states on originality). Despite the failure of replication of the hypothesized flexibility pathway linking positive, activating mood states to originality in previous studies, 
+\subsection*{Multilevel Regression Analysis: Predicting Originality From Flexibility Measures}
+Given that mood induction did not significantly influence originality or any flexibility process measures (as established through the series of one-way ANOVAs above), one of the necessary conditions for the mediation analysis (i.e., the significance of both the indirect and direct effects) was not met. Hence, I chose not to perform the planned mediation analysis (see the full mediation model output in Appendix~\ref{appendix: mediation_analysis_results} that confirms the insignificance of indirect and direct effects of positive, activating mood states on originality). Although the present study did not replicate prior findings suggesting that positive activating mood enhances originality via cognitive flexibility, subsequent correlation analyses revealed significant associations between specific flexibility measures and originality. These findings highlight the importance of examining process-level predictors of the originality aspect of creativity, independent of mood effects.
+
+Hence, to directly assess the unique predictive contribution of each flexibility measure to creative originality, I implemented a multilevel regression model that accounted for the nested structure of the data, in which each participant completed three drawing trials. This modeling framework offered two key advantages: (1) it allowed us to partition both between- and within-participant variability, and (2) it appropriately leveraged the repeated-measures design to improve statistical power while accounting for dependency among observations. The model specified random intercepts for participants and treated originality scores, as assessed by the AuDrA model, as the dependent variable. All five flexibility measures—average entropy, average Bhattacharyya distance, inflection proportion of entropy, inflection proportion of Bhattacharyya distance, and DSI—were included as fixed-effect predictors. In addition, several covariates were entered to control for potential confounding factors: positive and negative affectivity (trait affect), openness to experiences, trait-level cognitive flexibility, and self-rated artistic skill.
+
+\begin{table}[H]
+\centering
+\begin{threeparttable}
+\caption{Multilevel Regression Predicting Originality from Flexibility Measures and Covariates}
+\label{tab:multilevel_regression_results}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Predictor} & \textbf{Estimate} ($\beta$) & \textbf{95\% CI} & \textbf{$p$-value} \\
+\midrule
+(Intercept) & 0.30 & [0.16, 0.43] & $<.001$ \\
+Avg. Entropy & $-0.07$ & [$-0.17$, 0.02] & .105 \\
+Avg. Bhatt. Dist. & $0.00$ & [$-0.02$, 0.03] & .772 \\
+Inflect. Prop. Entropy & $0.18$ & [0.11, 0.25] & $<.001$ \\
+Inflect. Prop. Bhatt & $0.16$ & [0.09, 0.23] & $<.001$ \\
+DSI & $0.06$ & [0.02, 0.09] & .004 \\
+Positive Affectivity & $-0.00$ & [$-0.00$, $-0.00$] & $<.001$ \\
+Negative Affectivity & $0.00$ & [$-0.00$, 0.00] & .083 \\
+Openness to Experiences & $0.00$ & [$-0.00$, 0.01] & .129 \\
+Cognitive Flexibility & $0.00$ & [$-0.00$, 0.00] & .104 \\
+Self-Rated Artistic Skill & $-0.00$ & [$-0.01$, 0.01] & .531 \\
+\midrule
+\multicolumn{4}{l}{\textbf{Random Effects}} \\
+\quad Residual Variance ($\sigma^2$) & \multicolumn{3}{l}{0.00} \\
+\quad Intercept Variance (Participant) ($\tau_{00}$) & \multicolumn{3}{l}{0.00} \\
+\quad ICC & \multicolumn{3}{l}{0.07} \\
+\quad $N$ (Participants) & \multicolumn{3}{l}{90} \\
+\quad Observations & \multicolumn{3}{l}{270} \\
+\quad Marginal $R^2$ / Conditional $R^2$ & \multicolumn{3}{l}{0.725 / 0.745} \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\small
+\item \textit{Note.} CI = confidence interval; ICC = intraclass correlation coefficient. Estimates reflect fixed effects from a multilevel model with random intercepts for participants. Avg. Entropy = Average Entropy; Avg. Bhatt. Dist. = Average Bhattacharyya Distance; Inflect. Prop. Entropy = Inflection Proportion of Entropy; Inflect. Prop. Bhatt = Inflection Proportion of Bhattacharyya Distance; DSI = Divergent Semantic Integration; AuDrA = Automated Drawing Assessment (Originality Score).
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+The multilevel regression model demonstrated strong explanatory power, with a marginal $R^2$ of .725 and a conditional $R^2$ of .745. These values indicate that the fixed effects alone explained approximately 73\% of the variance in originality scores and that including random intercepts for participants provided a small additional improvement in the fit of the model. This high level of explained variance is further supported by the predicted versus observed plot shown in Figure~\ref{fig:predicted_vs_observed}. The strong alignment of data points along the diagonal reference line suggests that the model accurately captures the underlying variability in originality ratings across trials and participants.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{../analysis/results/main_results/multilevel_regression/predicted_vs_observed_plot.png}
+  \caption{Predicted vs. observed originality scores from the multilevel regression model. The dashed line represents the identity line ($y = x$). AuDrA = Automated Drawing Assessment (Originality Score).}
+  \label{fig:predicted_vs_observed}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{../analysis/results/main_results/multilevel_regression/fixed_effects_plott.png}
+  \caption{Fixed effects estimates from the multilevel regression model. Error bars indicate 95\% confidence intervals. Avg. Entropy = Average Entropy; Avg. Bhatt. Dist. = Average Bhattacharyya Distance; Inflect. Prop. Entropy = Inflection Proportion of Entropy; Inflect. Prop. Bhatt = Inflection Proportion of Bhattacharyya Distance; DSI = Divergent Semantic Integration; AuDrA = Automated Drawing Assessment (Originality Score).}
+  \label{fig:coef_plot}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[height=0.85\textheight, width=0.9\textwidth]{../analysis/results/main_results/multilevel_regression/marginal_effects_plot.png}
+  \caption{Marginal effects of the three significant predictors on originality. Shaded areas represent 95\% confidence intervals. Inflect. Prop. Entropy = Inflection Proportion of Entropy; Inflect. Prop. Bhatt = Inflection Proportion of Bhattacharyya Distance; DSI = Divergent Semantic Integration; AuDrA = Automated Drawing Assessment (Originality Score).}
+  \label{fig:marginal_plot}
+\end{figure}
+
+When it comes to how each flexibility measure predicted originality, three flexibility measures emerged as statistically significant predictors of originality in the multilevel regression model (see both Table~\ref{tab:multilevel_regression_results} and  Figure~\ref{fig:coef_plot}): inflection proportion of entropy ($\beta = 0.18$, $p < .001$), inflection proportion of Bhattacharyya distance ($\beta = 0.16$, $p < .001$), and DSI ($\beta = 0.06$, $p = .004$). These effects remained significant after controlling for trait affectivity, openness, cognitive flexibility, and self-rated artistic skill. These relationships are further illustrated in Figure~\ref{fig:marginal_plot}, which shows the marginal effects of each significant predictor on originality. All three predictors exhibit a clear linear trend, with higher inflection proportions and DSI scores associated with increased model-predicted originality. 
+
+By contrast, neither average entropy ($\beta = -0.07$, $p = .105$) nor average Bhattacharyya distance ($\beta = 0.00$, $p = .772$) significantly predicted originality. These null findings reinforce and extend the distinction observed in the earlier correlational analysis (see Figure~\ref{fig:cor_heatmap} above) between two qualitatively different modes of flexibility: persistent exploratory breadth and dynamic switching. Average entropy and average Bhattacharyya distance—strongly correlated with each other but uncorrelated with inflection-based metrics or DSI—did not significantly predict originality in the multilevel model. In contrast, the inflection-based measures and DSI, which were positively correlated and previously shown to relate more closely to originality, emerged as significant predictors here as well. Taken together, both the correlational and multilevel findings converge to suggest that originality is more strongly associated with dynamic switching between ideas—captured by inflection proportions and conceptual integration—than with global exploratory breadth alone. That is, originality appears to benefit more from flexible transitions and semantic diversity than from consistently high uncertainty or divergence throughout the task.
 
 \end{document}
