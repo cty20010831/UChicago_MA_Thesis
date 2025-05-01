@@ -478,7 +478,7 @@ predicted_vs_observed_plot <- ggplot(merged_data, aes(x = predicted, y = AuDrA))
   geom_point(alpha = 0.6, color = "gray40", size = 2) +
   geom_abline(intercept = 0, slope = 1, color = highlight_color, linetype = "dashed", size = 1) +
   labs(title = "Predicted vs. Observed Originality Scores",
-       x = "Predicted AuDrA", y = "Observed AuDrA") +
+       x = "Predicted AuDrA Score", y = "Observed AuDrA Score") +
   base_theme
 ggsave(file.path(multilevel_regression_dir, "predicted_vs_observed_plot.png"), 
        predicted_vs_observed_plot)
@@ -489,7 +489,7 @@ fixed_effects_plot <- plot_model(
   type = "est",
   show.values = TRUE,
   value.offset = 0.3,
-  title = "Fixed Effects Predicting Originality",
+  title = "Fixed Effects Predicting Originality (AuDrA Score)",
   colors = highlight_color,
   dot.size = 2,
   line.size = 0.8,
@@ -507,11 +507,23 @@ significant_predictors <- c("inflection_prop_entropy", "inflection_prop_bhatt", 
 effect_plot <- function(var) {
   eff <- Effect(var, mlm_model)
   df <- as.data.frame(eff)
+  
+  # Conditional x-axis label
+  x_label <- if (grepl("inflection_prop", var)) {
+    if (gsub("inflection_prop_", "", var) == "entropy") {
+      "Inflection Proportion of Entropy"
+    } else {
+      "Inflection Proportion of Bhattacharyya Distance"
+    }
+  } else {
+    var
+  }
+  
   ggplot(df, aes_string(x = var, y = "fit")) +
     geom_line(color = highlight_color, size = 1.2) +
     geom_ribbon(aes(ymin = lower, ymax = upper), fill = highlight_color, alpha = 0.2) +
-    labs(title = paste("Effect of", var, "on Originality"),
-         x = var, y = "Predicted AuDrA") +
+    labs(title = paste("Effect of",  x_label, "on Originality (AuDrA Score)"),
+         x = x_label, y = "Predicted AuDrA Score") +
     base_theme
 }
 
@@ -520,7 +532,7 @@ effect_plots <- lapply(significant_predictors, effect_plot)
 # Combine all marginal effect plots into one column
 combined_effects_plot <- wrap_plots(effect_plots, ncol = 1)
 ggsave(file.path(multilevel_regression_dir, "marginal_effects_plot.png"),
-       plot = combined_effects_plot, width = 7, height = 10, dpi = 300)
+       plot = combined_effects_plot, width = 9, height = 10, dpi = 300)
 
 # -------------------------------------------------------------------------
 # 7. Exploratory Results (probably put in supplementary results)
