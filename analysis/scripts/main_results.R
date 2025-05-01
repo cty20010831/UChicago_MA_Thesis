@@ -532,7 +532,7 @@ effect_plots <- lapply(significant_predictors, effect_plot)
 # Combine all marginal effect plots into one column
 combined_effects_plot <- wrap_plots(effect_plots, ncol = 1)
 ggsave(file.path(multilevel_regression_dir, "marginal_effects_plot.png"),
-       plot = combined_effects_plot, width = 9, height = 10, dpi = 300)
+       plot = combined_effects_plot, width = 10, height = 10, dpi = 300)
 
 # -------------------------------------------------------------------------
 # 7. Exploratory Results (probably put in supplementary results)
