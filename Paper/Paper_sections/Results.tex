@@ -3,9 +3,10 @@
 \usepackage{hyperref}
 \usepackage{csquotes}
 \usepackage{float}
+\usepackage{tabularx}
 \usepackage{threeparttable}  % for table notes
 \usepackage{booktabs}        % for \toprule, \midrule, \bottomrule
-\usepackage{float}
+
 
 \begin{document}
 \subsection*{Participant Demographics}
@@ -68,12 +69,36 @@ AuDrA & 0.37 (0.10) & 0.36 (0.10) & 0.37 (0.11) \\
 
 To further statistically assess group differences across the three induced mood conditions, a series of one-way ANOVAs were performed for each flexibility measure and originality. As shown in Table~\ref{tab:anova_results}, none of the ANOVAs reached significance and all effect sizes were small ($\eta^2 < .03$). This suggests that mood induction did not lead to significant differences in cognitive flexibility or originality. In other words, mood induction, despite being shown to alter the arousal and valence ratings, did not affect the originality aspect of creativity or any of the process measures, as mentioned in previous studies. 
 
+% \begin{table}[H]
+% \centering
+% \begin{threeparttable}
+% \caption{One-way ANOVA Results for Group Comparisons}
+% \label{tab:anova_results}
+% \begin{tabular}{lccc}
+% \toprule
+% \textbf{Measure} & \textbf{$F(2, 87)$} & \textbf{$p$} & \textbf{$\eta^2$} \\
+% \midrule
+% Avg. Entropy & 1.30 & .2784 & .029 \\
+% Avg. Bhatt. Dist. & 0.44 & .6456 & .010 \\
+% Inflect. Prop. Entropy & 0.41 & .6620 & .009 \\
+% Inflect. Prop. Bhatt & 0.12 & .8850 & .003 \\
+% DSI & 0.63 & .5375 & .014 \\
+% AuDrA & 0.18 & .8357 & .004 \\
+% \bottomrule
+% \end{tabular}
+% \begin{tablenotes}[flushleft]
+% \small
+% \item \textit{Note.} Avg. Entropy = Average Entropy; Avg. Bhatt. Dist. = Average Bhattacharyya Distance; Inflect. Prop. Entropy = Inflection Proportion of Entropy; Inflect. Prop. Bhatt = Inflection Proportion of Bhattacharyya Distance; DSI = Divergent Semantic Integration; AuDrA = Automated Drawing Assessment (Originality Score).
+% \end{tablenotes}
+% \end{threeparttable}
+% \end{table}
+
 \begin{table}[H]
 \centering
 \begin{threeparttable}
 \caption{One-way ANOVA Results for Group Comparisons}
 \label{tab:anova_results}
-\begin{tabular}{lccc}
+\begin{tabularx}{\textwidth}{lXXX}
 \toprule
 \textbf{Measure} & \textbf{$F(2, 87)$} & \textbf{$p$} & \textbf{$\eta^2$} \\
 \midrule
@@ -84,7 +109,7 @@ Inflect. Prop. Bhatt & 0.12 & .8850 & .003 \\
 DSI & 0.63 & .5375 & .014 \\
 AuDrA & 0.18 & .8357 & .004 \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \begin{tablenotes}[flushleft]
 \small
 \item \textit{Note.} Avg. Entropy = Average Entropy; Avg. Bhatt. Dist. = Average Bhattacharyya Distance; Inflect. Prop. Entropy = Inflection Proportion of Entropy; Inflect. Prop. Bhatt = Inflection Proportion of Bhattacharyya Distance; DSI = Divergent Semantic Integration; AuDrA = Automated Drawing Assessment (Originality Score).
@@ -171,8 +196,8 @@ When it comes to how each flexibility measure predicted originality, three flexi
 
 \begin{figure}[H]
   \centering
-  \includegraphics[height=0.85\textheight, width=0.9\textwidth]{../analysis/results/main_results/multilevel_regression/marginal_effects_plot.png}
-  \caption{Marginal effects of the three significant predictors on originality. Shaded areas represent 95\% confidence intervals. Inflect. Prop. Entropy = Inflection Proportion of Entropy; Inflect. Prop. Bhatt = Inflection Proportion of Bhattacharyya Distance; DSI = Divergent Semantic Integration; AuDrA = Automated Drawing Assessment (Originality Score).}
+  \includegraphics[height=0.9\textheight, width=\textwidth]{../analysis/results/main_results/multilevel_regression/marginal_effects_plot.png}
+  \caption{Marginal effects of the three significant predictors on originality. Shaded areas represent 95\% confidence intervals.}
   \label{fig:marginal_plot}
 \end{figure}
 
