@@ -55,7 +55,7 @@ This study combines the incomplete shape drawing task and narrative-based reflec
 
 ### Experimental design
 The experiment is deployed as a web-based platform built in JavaScript using the jsPsych library. The experiment consists of four main components:
-1. Mood induction using embedded video stimuli; 
+1. Mood induction using embedded video stimuli ([link to mood induction clips](https://drive.google.com/drive/u/0/folders/1TgkST_8BaKBVv45mN1DDP4-GMQafI4mG?ths=true)); 
 2. Incomplete shape drawing tasks with a built-in drawing interface (sketchpad.js); 
 3. Post-task narrative responses to capture ideation processes; 
 4. Demographics and control measures (e.g., openness, affectivity, artistic skill).
