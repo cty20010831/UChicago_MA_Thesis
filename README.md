@@ -10,7 +10,8 @@ This respostory contains proposal, presentation, and final paper for my MA thesi
         ├── scripts/                        # Analysis scripts (including submodules to calculate flexbility and originality)
     ├── drawio/                         # Drawio flowcharts and diagrams
     ├── Paper/                          # Sections (components) of final paper
-    ├── Proposal/                       # Sections (components) of final proposal
+    ├── Proposal/                       # Sections (components) of final proposal (including proposal presentation)
+    ├── sample_completed_shapes/        # Sample completed shapes participants drew for the Incomplete Shape Drawing Task (for three groups of stimuli)
     ├── sample_drawing_AuDrA            # Sample drawings to test the AuDrA model (in original papers)
     ├── screenshots/                    # Screenshots for better concept/framework explanation for presentation
     ├── CITATIONS.cff                   # Let others know how to cite this repository
@@ -19,7 +20,7 @@ This respostory contains proposal, presentation, and final paper for my MA thesi
 
 ## Study Description
 ### Introduction
-This project explores the intricate relationship between mood states and creativity, specifically focusing on how mood activation levels such as happiness and calmness influence creative outputs. By employing advanced deep learning techniques, experimental tasks like the incompleteness drawing task, and narrative analysis methods like Divergent Semantic Integration (DSI), this study aims to quantitatively dissect the creative process into measurable aspects of flexibility and originality.
+This project explores the intricate relationship between mood states and creativity, specifically focusing on how mood activation levels such as happiness and calmness influence creative outputs. By employing advanced deep learning techniques, experimental tasks like the Incomplete Shape Drawing Task, and narrative analysis methods like Divergent Semantic Integration (DSI), this study aims to quantitatively dissect the creative process into measurable aspects of flexibility and originality.
 
 ### Definitions of Key Concepts
 - **Mood:** Mood is characterized as diffuse affective states that are not targeted at any particular object. Unlike emotions, which are acute and directed responses, moods are diffuse
@@ -41,7 +42,7 @@ Developed by Barbot (2018), the MTCI framework is designed to assess the dynamic
 ### Overview of Research Design
 To test these questions, the study introduces **a novel task-measurement combination**, which leverages both the versatility of drawing tasks to uncover the cognitive underpinnings of creativity and employing state-of-the-art artificial intelligence techniques. This study aims to capture the nuanced effects of mood on creative processes and, more specifically, the (potential) building effects of positive mood states on thought-action repertoires. By distinguishing positive mood states varying on the activation dimension—happiness (high activation) and calmness (low activation), this study seeks to scrutinize the hypothesized flexibility pathway in the dual pathway to creativity model. 
 
-This study combines the incomplete shape drawing task and narrative-based reflection, following the MTCI framework. Participants are randomly assigned to a high-arousal positive mood, low-arousal positive mood, or neutral control condition using validated film-based mood induction. Each participant then completes three randomized drawing trials, each followed by a narrative description of their thought process.
+This study combines the Incomplete Shape Drawing Task and narrative-based reflection, following the MTCI framework. Participants are randomly assigned to a high-arousal positive mood, low-arousal positive mood, or neutral control condition using validated film-based mood induction. Each participant then completes three randomized drawing trials, each followed by a narrative description of their thought process.
 
 **Cognitive flexibility** is measured using two computational approaches:
 - Compositional Stroke Embedding (CoSE): A generative model that employs a Gaussian Mixture Model (GMM) to predict next-stroke probabilities. It captures flexibility via (1) average entropy and Bhattacharyya distance (indicating sustained exploratory breadth), and (2) inflection proportions (indicating real-time shifts in strategy).
@@ -56,7 +57,7 @@ This study combines the incomplete shape drawing task and narrative-based reflec
 ### Experimental design
 The experiment is deployed as a web-based platform built in JavaScript using the jsPsych library. The experiment consists of four main components:
 1. Mood induction using embedded video stimuli ([link to mood induction clips](https://drive.google.com/drive/u/0/folders/1TgkST_8BaKBVv45mN1DDP4-GMQafI4mG?ths=true)); 
-2. Incomplete shape drawing tasks with a built-in drawing interface (sketchpad.js); 
+2. Three rounds of the Incomplete Shape Drawing Task with a built-in drawing interface (sketchpad.js); 
 3. Post-task narrative responses to capture ideation processes; 
 4. Demographics and control measures (e.g., openness, affectivity, artistic skill).
 
